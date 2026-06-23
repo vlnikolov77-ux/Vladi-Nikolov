@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Vladi Nikolov — AI Marketing Strategist</title>
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#F8FAFC;color:#1F2937;line-height:1.65;overflow-x:hidden}
+
+/* ── TOKENS ──────────────────────────────────────────────────────────────── */
+:root{
+  --dark:#111827;
+  --navy:#1E3A5F;
+  --red:#DC2626;
+  --red-light:#FEE2E2;
+  --orange:#F59E0B;
+  --grey:#6B7280;
+  --border:#E5E7EB;
+  --surface:#FFFFFF;
+  --bg:#F8FAFC;
+}
+
+/* ── UTILITIES ───────────────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease,transform .6s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}
+
+.container{max-width:1060px;margin:0 auto;padding:0 24px}
+.section-eyebrow{font-size:.72rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2.5px;display:block;margin-bottom:8px}
+h2.section-title{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;color:var(--dark);margin-bottom:40px;line-height:1.2}
+section{padding:80px 0}
+section:nth-child(even){background:var(--surface)}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(17,24,39,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:14px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:padding .3s;
+}
+.nav-logo{color:#fff;font-weight:800;font-size:.95rem;text-decoration:none;letter-spacing:-.3px}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;
+  font-size:.82rem;font-weight:700;text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:#B91C1C;transform:translateY(-1px)}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(145deg,#111827 0%,#1E3A5F 55%,#111827 100%);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding-top:80px;
+}
+.hero-bg-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+}
+.hero-bg-orb.orb1{width:500px;height:500px;background:rgba(220,38,38,.18);top:-100px;right:-80px;animation:float1 8s ease-in-out infinite}
+.hero-bg-orb.orb2{width:350px;height:350px;background:rgba(30,58,95,.5);bottom:-60px;left:-60px;animation:float2 10s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,20px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-25px)}}
+
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;
+}
+@media(max-width:760px){.hero-inner{grid-template-columns:1fr}.hero-badge-stack{display:none}}
+
+.hero-eyebrow{
+  font-size:.78rem;font-weight:700;color:rgba(252,165,165,.9);
+  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px;display:block;
+  animation:fadeUp .7s .1s both ease;
+}
+.hero h1{
+  font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:900;color:#fff;
+  line-height:1.08;letter-spacing:-1.5px;margin-bottom:22px;
+  animation:fadeUp .7s .2s both ease;
+}
+.hero h1 .red{color:var(--red)}
+.hero-sub{
+  font-size:clamp(.95rem,1.8vw,1.1rem);color:#94A3B8;
+  max-width:520px;margin-bottom:36px;
+  animation:fadeUp .7s .3s both ease;
+}
+.hero-chips{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;
+  animation:fadeUp .7s .4s both ease;
+}
+.chip{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.85);padding:6px 14px;border-radius:100px;
+  font-size:.78rem;font-weight:600;
+}
+.chip.hot{background:rgba(220,38,38,.25);border-color:rgba(220,38,38,.4);color:#FCA5A5}
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;
+  animation:fadeUp .7s .5s both ease;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:8px;font-weight:700;font-size:.9rem;
+  text-decoration:none;transition:transform .15s,box-shadow .15s,background .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:#B91C1C}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6)}
+
+/* badge stack (right column hero) */
+.hero-badge-stack{display:flex;flex-direction:column;gap:14px;min-width:200px}
+.hero-badge{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:16px 20px;text-align:center;
+  animation:fadeUp .7s both ease;
+}
+.hero-badge .bnum{font-size:1.8rem;font-weight:900;color:var(--red);line-height:1}
+.hero-badge .blbl{font-size:.72rem;color:#94A3B8;margin-top:4px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── METRICS STRIP ────────────────────────────────────────────────────────── */
+.metrics-strip{
+  background:var(--dark);padding:0;
+  display:grid;grid-template-columns:repeat(6,1fr);
+}
+@media(max-width:700px){.metrics-strip{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:400px){.metrics-strip{grid-template-columns:repeat(2,1fr)}}
+.metric{
+  text-align:center;padding:28px 12px;
+  border-right:1px solid rgba(255,255,255,.07);
+}
+.metric:last-child{border-right:none}
+.metric .mnum{
+  font-size:1.7rem;font-weight:900;color:var(--red);line-height:1;
+  display:block;
+}
+.metric .mlbl{font-size:.7rem;color:#6B7280;margin-top:5px;display:block}
+
+/* ── ABOUT ────────────────────────────────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+@media(max-width:680px){.about-grid{grid-template-columns:1fr}}
+.about-text p{color:#374151;margin-bottom:16px;font-size:.97rem}
+.about-text strong{color:var(--dark)}
+.skills-block{display:flex;flex-direction:column;gap:14px}
+.skill-row{display:flex;flex-direction:column;gap:5px}
+.skill-label{display:flex;justify-content:space-between;font-size:.83rem;font-weight:600;color:var(--dark)}
+.skill-pct{color:var(--grey);font-weight:400}
+.bar{height:5px;background:var(--border);border-radius:99px;overflow:hidden}
+.bar-fill{
+  height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── PROJECTS ─────────────────────────────────────────────────────────────── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.pcard{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+section:nth-child(even) .pcard{background:var(--bg)}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.pcard-accent{height:4px;background:linear-gradient(90deg,var(--red),var(--orange))}
+.pcard-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:12px}
+.pcard-tag{font-size:.68rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1.5px}
+.pcard-title{font-size:1rem;font-weight:800;color:var(--dark);line-height:1.3}
+.pcard-desc{font-size:.86rem;color:#4B5563;line-height:1.6;flex:1}
+.kpis{display:flex;flex-wrap:wrap;gap:7px}
+.kpi-pill{
+  background:var(--red-light);border:1px solid rgba(220,38,38,.2);
+  color:var(--red);padding:4px 11px;border-radius:100px;
+  font-size:.72rem;font-weight:700;
+}
+.tool-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tool-pill{
+  background:var(--bg);border:1px solid var(--border);
+  color:var(--grey);padding:3px 9px;border-radius:6px;font-size:.7rem;
+}
+section:nth-child(even) .tool-pill{background:var(--surface)}
+
+/* ── TIMELINE ─────────────────────────────────────────────────────────────── */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  display:grid;grid-template-columns:160px 1fr;
+  gap:28px;padding-bottom:36px;position:relative;
+}
+@media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:8px}}
+.tl-item:last-child{padding-bottom:0}
+.tl-left{text-align:right;padding-top:4px}
+.tl-period{font-size:.78rem;font-weight:700;color:var(--red)}
+.tl-co{font-size:.75rem;color:var(--grey);margin-top:3px}
+.tl-right{
+  border-left:2px solid rgba(220,38,38,.25);
+  padding-left:24px;position:relative;
+}
+.tl-right::before{
+  content:'';position:absolute;left:-7px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--red);border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--red);
+}
+.tl-right h3{font-size:.97rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.tl-right ul{padding-left:14px}
+.tl-right li{font-size:.86rem;color:#4B5563;margin-bottom:6px;line-height:1.55}
+.tl-right li strong{color:var(--dark)}
+
+/* ── SERVICES ─────────────────────────────────────────────────────────────── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.scard{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:28px 22px;text-align:center;
+  transition:transform .2s,box-shadow .2s;
+}
+section:nth-child(even) .scard{background:var(--bg)}
+.scard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.scard-icon{font-size:2rem;margin-bottom:12px}
+.scard h3{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.scard p{font-size:.8rem;color:var(--grey);line-height:1.6}
+
+/* ── TOOLS WALL ──────────────────────────────────────────────────────────── */
+.tools-wall{display:flex;flex-wrap:wrap;gap:10px}
+.tool-tag{
+  background:var(--surface);border:1px solid var(--border);
+  padding:8px 16px;border-radius:100px;
+  font-size:.82rem;font-weight:500;color:var(--dark);
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+  transition:border-color .2s,color .2s;
+}
+section:nth-child(even) .tool-tag{background:var(--bg)}
+.tool-tag:hover{border-color:var(--red);color:var(--red)}
+
+/* ── TESTIMONIALS ─────────────────────────────────────────────────────────── */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.tcard{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:30px;position:relative;overflow:hidden;
+}
+.tcard::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+}
+.tcard-quote{
+  font-size:.9rem;color:#374151;font-style:italic;
+  margin-bottom:18px;line-height:1.65;
+  position:relative;padding-left:18px;
+}
+.tcard-quote::before{
+  content:'\201C';position:absolute;left:0;top:-6px;
+  font-size:2.4rem;color:var(--red);opacity:.3;line-height:1;
+}
+.tcard-author{font-size:.8rem;font-weight:700;color:var(--dark)}
+
+/* ── CONTACT ──────────────────────────────────────────────────────────────── */
+.contact-section{
+  background:var(--dark) !important;
+  padding:80px 0;
+}
+.contact-section .section-eyebrow{color:rgba(252,165,165,.8)}
+.contact-section h2.section-title{color:#fff}
+.contact-sub{color:#94A3B8;max-width:500px;margin:0 auto 44px;text-align:center;font-size:.97rem}
+.contact-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.ccard{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:#fff;text-decoration:none;padding:14px 24px;border-radius:12px;
+  font-size:.88rem;font-weight:600;
+  transition:background .2s,border-color .2s,transform .15s;
+}
+.ccard:hover{background:rgba(220,38,38,.2);border-color:rgba(220,38,38,.4);transform:translateY(-2px)}
+.ccard-icon{font-size:1.1rem}
+.contact-section .container{text-align:center}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer{background:#0D1117;color:#4B5563;text-align:center;padding:22px;font-size:.78rem}
+footer a{color:#6B7280;text-decoration:none}
+footer a:hover{color:#fff}
+
+/* ── CORE SKILLS ─────────────────────────────────────────────────────────── */
+.cskills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.cskill-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:20px;
+  display:flex;align-items:flex-start;gap:14px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+section:nth-child(even) .cskill-card{background:var(--bg)}
+.cskill-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08);border-color:rgba(220,38,38,.25)}
+.cskill-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.cskill-body h4{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.cskill-body p{font-size:.78rem;color:var(--grey);line-height:1.5}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">Vladi <span>Nikolov</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:vlnikolov77@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-orb orb1"></div>
+  <div class="hero-bg-orb orb2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">AI Marketing · Sofia, Bulgaria · Remote-Ready</span>
+        <h1>Campaigns that <span class="red">actually</span> perform.</h1>
+        <p class="hero-sub">
+          I'm Vladi Nikolov — AI marketing strategist and video creator. I combine emotional
+          storytelling with 150+ AI tools to build content that reaches real audiences
+          and drives real results.
+        </p>
+        <div class="hero-chips">
+          <span class="chip hot">★ Rising Talent · Upwork</span>
+          <span class="chip">955K Views · 1 Campaign</span>
+          <span class="chip">5+ Years Experience</span>
+          <span class="chip">42% Email Open Rate</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-primary">Start a Project</a>
+          <a href="#projects" class="btn btn-ghost">See My Work</a>
+          <a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" class="btn btn-ghost">Upwork Profile ↗</a>
+        </div>
+      </div>
+      <div class="hero-badge-stack">
+        <div class="hero-badge" style="animation-delay:.3s">
+          <div class="bnum">955K</div>
+          <div class="blbl">Views — 1 Campaign</div>
+        </div>
+        <div class="hero-badge" style="animation-delay:.45s">
+          <div class="bnum">+8K%</div>
+          <div class="blbl">Engagement Lift</div>
+        </div>
+        <div class="hero-badge" style="animation-delay:.6s">
+          <div class="bnum">42%</div>
+          <div class="blbl">Email Open Rate</div>
+        </div>
+        <div class="hero-badge" style="animation-delay:.75s">
+          <div class="bnum">150+</div>
+          <div class="blbl">AI Tools Deployed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS STRIP -->
+<div class="metrics-strip">
+  <div class="metric"><span class="mnum" data-count="955" data-suffix="K">0</span><span class="mlbl">Views — 1 Campaign</span></div>
+  <div class="metric"><span class="mnum" data-count="104" data-suffix="K">0</span><span class="mlbl">Engagements</span></div>
+  <div class="metric"><span class="mnum" data-prefix="+" data-count="8019" data-suffix="%">0</span><span class="mlbl">vs. Baseline</span></div>
+  <div class="metric"><span class="mnum" data-count="42" data-suffix="%">0</span><span class="mlbl">Email Open Rate</span></div>
+  <div class="metric"><span class="mnum" data-count="7.8" data-suffix="%" data-decimal="1">0</span><span class="mlbl">Click-Through Rate</span></div>
+  <div class="metric"><span class="mnum" data-count="40" data-suffix="%">0</span><span class="mlbl">Revenue Growth</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <span class="section-eyebrow reveal">Who I Am</span>
+    <h2 class="section-title reveal delay-1">Built on results, powered by AI.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p>I create content that <strong>engages, inspires, and sells</strong> — using 150+ AI tools I've personally tested and deployed across real campaigns.</p>
+        <p>My work sits at the intersection of <strong>emotional storytelling</strong> and <strong>AI-driven efficiency</strong>. Whether it's a single reel or a full launch funnel, I help brands move faster, cut through noise, and convert.</p>
+        <p>As a <strong>Zumba® Global Community Council Member</strong>, I represent 50,000+ instructors worldwide — which means I understand community dynamics, brand voice, and audience motivation at scale.</p>
+        <p>Based in <strong>Sofia, Bulgaria</strong>. Available for remote projects globally.</p>
+      </div>
+      <div class="skills-block reveal delay-2">
+        <div class="skill-row">
+          <div class="skill-label"><span>AI Strategy &amp; Prompt Engineering</span><span class="skill-pct">96%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="96"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Short-Form Video &amp; AI Reels</span><span class="skill-pct">93%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="93"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Content &amp; Brand Strategy</span><span class="skill-pct">91%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="91"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Copywriting &amp; Storytelling</span><span class="skill-pct">94%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="94"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Email Marketing Funnels</span><span class="skill-pct">88%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Community Building</span><span class="skill-pct">95%</span></div>
+          <div class="bar"><div class="bar-fill" data-width="95"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <span class="section-eyebrow reveal">Portfolio</span>
+    <h2 class="section-title reveal delay-1">Projects &amp; Results</h2>
+    <div class="projects-grid">
+
+      <div class="pcard reveal delay-1">
+        <div class="pcard-accent"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag">AI Video · Social Media</span>
+          <h3 class="pcard-title">AI-Powered Reels — Personal Branding Campaign</h3>
+          <p class="pcard-desc">Hook-first AIDA storytelling, music-synced text overlays and CTA-driven endings. The format became the content template for client accounts.</p>
+          <div class="kpis">
+            <span class="kpi-pill">955K Views</span>
+            <span class="kpi-pill">104K Engagements</span>
+            <span class="kpi-pill">+8,019% vs. Baseline</span>
+            <span class="kpi-pill">2× Profile Visits in 10 Days</span>
+          </div>
+          <div class="tool-pills">
+            <span class="tool-pill">ChatGPT</span><span class="tool-pill">Higgsfield</span>
+            <span class="tool-pill">Veed.io</span><span class="tool-pill">CapCut</span><span class="tool-pill">Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard reveal delay-2">
+        <div class="pcard-accent"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag">Email Marketing</span>
+          <h3 class="pcard-title">3-Step Email Funnel — Wellness Product Launch</h3>
+          <p class="pcard-desc">Story → Social Proof → Offer. Emotional narrative around self-care, backed by testimonials and a time-limited CTA. Delivered well above industry benchmarks.</p>
+          <div class="kpis">
+            <span class="kpi-pill">42% Open Rate (vs. 27% avg.)</span>
+            <span class="kpi-pill">7.8% CTR</span>
+            <span class="kpi-pill">10 Sales in 72 Hours</span>
+          </div>
+          <div class="tool-pills">
+            <span class="tool-pill">ChatGPT</span><span class="tool-pill">Beehiiv</span>
+            <span class="tool-pill">Mailchimp</span><span class="tool-pill">Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard reveal delay-3">
+        <div class="pcard-accent"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag">Full-Funnel Campaign</span>
+          <h3 class="pcard-title">Kapki-bah.com — AI Marketing Launch</h3>
+          <p class="pcard-desc">End-to-end campaign: concept, video scripting, AI-generated visuals, voiceover, talking avatar, giveaway promo, email sequence, and Viber direct messaging — delivered solo.</p>
+          <div class="kpis">
+            <span class="kpi-pill">Video + Email + Viber</span>
+            <span class="kpi-pill">Full Brand Voice</span>
+            <span class="kpi-pill">Giveaway Campaign</span>
+          </div>
+          <div class="tool-pills">
+            <span class="tool-pill">ChatGPT</span><span class="tool-pill">Higgsfield</span>
+            <span class="tool-pill">Midjourney</span><span class="tool-pill">ElevenLabs</span>
+            <span class="tool-pill">FlexClip</span><span class="tool-pill">Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard reveal delay-4">
+        <div class="pcard-accent"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag">Event Marketing · Community</span>
+          <h3 class="pcard-title">Party in Pink Zumbathon — 12 Cities</h3>
+          <p class="pcard-desc">Produced and marketed a national charity fitness event across 12 Bulgarian cities. Led community coordination, partnership outreach, and all campaign assets.</p>
+          <div class="kpis">
+            <span class="kpi-pill">12 Cities</span>
+            <span class="kpi-pill">~1,000 Attendees</span>
+            <span class="kpi-pill">90+ Instructors</span>
+          </div>
+          <div class="tool-pills">
+            <span class="tool-pill">Event Strategy</span>
+            <span class="tool-pill">Partnerships</span>
+            <span class="tool-pill">Social Media</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <span class="section-eyebrow reveal">Work History</span>
+    <h2 class="section-title reveal delay-1">Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2020 – Present</div>
+          <div class="tl-co">Viveka 111 LTD · Sofia</div>
+        </div>
+        <div class="tl-right">
+          <h3>AI Marketing Strategist &amp; Content Lead</h3>
+          <ul>
+            <li>Ran a campaign that reached <strong>955K views, 104K engagements, and 3,280 comments</strong> — <strong>+8,019%</strong> above our typical baseline.</li>
+            <li>Built full-funnel content systems for multiple clients across video, email, and social channels.</li>
+            <li>Integrated 150+ AI tools into real workflows — from prompt engineering to video production and voiceover.</li>
+            <li>Advised clients on building scalable AI-driven content strategies without losing brand authenticity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2022 – Present</div>
+          <div class="tl-co">Zumba® Global Network · Remote</div>
+        </div>
+        <div class="tl-right">
+          <h3>Global Community Council Member</h3>
+          <ul>
+            <li>Selected to represent <strong>50,000+ instructors worldwide</strong> at the network's leadership level.</li>
+            <li>Contribute trend analysis and community frameworks that shape platform-wide strategy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2021 – 2025</div>
+          <div class="tl-co">SI Testing LTD · Sofia</div>
+        </div>
+        <div class="tl-right">
+          <h3>Front Office Manager</h3>
+          <ul>
+            <li>Ran full administrative and operational flow for a calibration laboratory.</li>
+            <li>Built Excel-based tracking tools that improved throughput and reduced errors.</li>
+            <li>Contributed to ISO 9001 implementation — documentation, audits, and quality reviews.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2018 – 2021</div>
+          <div class="tl-co">Orenda 111 · Sofia</div>
+        </div>
+        <div class="tl-right">
+          <h3>Centre Manager — Sports Center Orenda 111</h3>
+          <ul>
+            <li>Grew revenue by <strong>40%</strong> within 18 months through marketing and strategic partnerships.</li>
+            <li>Produced and marketed the Party in Pink Zumbathon across <strong>12 cities (~1,000 attendees)</strong>.</li>
+            <li>Scaled the instructor network from 19 to <strong>90+ active coaches</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <span class="section-eyebrow reveal">What I Offer</span>
+    <h2 class="section-title reveal delay-1">Services</h2>
+    <div class="services-grid">
+      <div class="scard reveal delay-1">
+        <div class="scard-icon">🎬</div>
+        <h3>AI Video &amp; Reels</h3>
+        <p>Short-form content with strong hooks, visual rhythm, and CTA-driven endings — built for Instagram, TikTok, and LinkedIn.</p>
+      </div>
+      <div class="scard reveal delay-2">
+        <div class="scard-icon">✍️</div>
+        <h3>AI Copywriting</h3>
+        <p>Ad copy, captions, scripts, and long-form content — optimised for emotional resonance and conversion.</p>
+      </div>
+      <div class="scard reveal delay-3">
+        <div class="scard-icon">📧</div>
+        <h3>Email Funnels</h3>
+        <p>Multi-step sequences that educate, build trust, and convert — consistently above industry averages.</p>
+      </div>
+      <div class="scard reveal delay-4">
+        <div class="scard-icon">📊</div>
+        <h3>Brand &amp; Campaign Strategy</h3>
+        <p>Audience alignment, tone-of-voice, channel mix, and AI-powered content systems that scale.</p>
+      </div>
+      <div class="scard reveal delay-1">
+        <div class="scard-icon">🤖</div>
+        <h3>AI Tool Consulting</h3>
+        <p>150+ tools tested. I help teams integrate AI into their content workflow to produce more, faster.</p>
+      </div>
+      <div class="scard reveal delay-2">
+        <div class="scard-icon">🌍</div>
+        <h3>Community Building</h3>
+        <p>Strategy backed by managing 50K+ member networks at global level — not just theory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE SKILLS -->
+<section id="skills">
+  <div class="container">
+    <span class="section-eyebrow reveal">Expertise</span>
+    <h2 class="section-title reveal delay-1">Core Skills</h2>
+    <div class="cskills-grid">
+      <div class="cskill-card reveal delay-1">
+        <div class="cskill-icon">🤖</div>
+        <div class="cskill-body">
+          <h4>AI Strategy &amp; Prompt Engineering</h4>
+          <p>Designing AI workflows and crafting prompts that produce on-brand, high-performing content at scale.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-2">
+        <div class="cskill-icon">🎬</div>
+        <div class="cskill-body">
+          <h4>Short-Form Video &amp; AI Reels</h4>
+          <p>Hook-first storytelling with Higgsfield, CapCut, and Veed.io — built for Instagram, TikTok &amp; LinkedIn.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-3">
+        <div class="cskill-icon">✍️</div>
+        <div class="cskill-body">
+          <h4>Copywriting &amp; Storytelling</h4>
+          <p>AIDA frameworks, emotional hooks, CTAs — copy that moves people and converts clicks into customers.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-4">
+        <div class="cskill-icon">📊</div>
+        <div class="cskill-body">
+          <h4>Content &amp; Brand Strategy</h4>
+          <p>Channel mix, tone-of-voice, audience alignment — strategy that gives every post a purpose.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-1">
+        <div class="cskill-icon">📧</div>
+        <div class="cskill-body">
+          <h4>Email Marketing Funnels</h4>
+          <p>Multi-step sequences that educate, build trust, and convert — with a 42% open rate to prove it.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-2">
+        <div class="cskill-icon">🌍</div>
+        <div class="cskill-body">
+          <h4>Community Building</h4>
+          <p>Managing 50K+ member networks at global scale — not theory, lived experience at Zumba® level.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-3">
+        <div class="cskill-icon">🎙️</div>
+        <div class="cskill-body">
+          <h4>AI Voiceover &amp; Avatars</h4>
+          <p>ElevenLabs, HeyGen, D-ID — lifelike voiceovers and talking avatars for ads, UGC, and brand content.</p>
+        </div>
+      </div>
+      <div class="cskill-card reveal delay-4">
+        <div class="cskill-icon">📈</div>
+        <div class="cskill-body">
+          <h4>Campaign Analysis &amp; Optimisation</h4>
+          <p>Audience alignment, messaging audit, CTA performance — backed by data and actionable next steps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section>
+  <div class="container">
+    <span class="section-eyebrow reveal">Tech Stack</span>
+    <h2 class="section-title reveal delay-1">AI Tools I Work With</h2>
+    <div class="tools-wall reveal delay-2">
+      <span class="tool-tag">ChatGPT / GPT-4o</span>
+      <span class="tool-tag">Midjourney</span>
+      <span class="tool-tag">Higgsfield</span>
+      <span class="tool-tag">ElevenLabs</span>
+      <span class="tool-tag">Veed.io</span>
+      <span class="tool-tag">CapCut</span>
+      <span class="tool-tag">Canva</span>
+      <span class="tool-tag">FlexClip</span>
+      <span class="tool-tag">Beehiiv</span>
+      <span class="tool-tag">Mailchimp</span>
+      <span class="tool-tag">HeyGen</span>
+      <span class="tool-tag">D-ID</span>
+      <span class="tool-tag">Runway ML</span>
+      <span class="tool-tag">Pika Labs</span>
+      <span class="tool-tag">Ideogram</span>
+      <span class="tool-tag">Adobe Firefly</span>
+      <span class="tool-tag">Sora</span>
+      <span class="tool-tag">Perplexity AI</span>
+      <span class="tool-tag">Notion AI</span>
+      <span class="tool-tag">Viber Business</span>
+      <span class="tool-tag">+ 130 more tested</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <span class="section-eyebrow reveal">What Clients Say</span>
+    <h2 class="section-title reveal delay-1">Testimonials</h2>
+    <div class="test-grid">
+      <div class="tcard reveal delay-1">
+        <p class="tcard-quote">"Working with Vladi was a pleasure. Their attention to detail and creativity exceeded our expectations. The final product was exactly what we needed to capture our audience's attention."</p>
+        <div class="tcard-author">Orenda 111 LTD</div>
+      </div>
+      <div class="tcard reveal delay-2">
+        <p class="tcard-quote">"Vladi brought our project to life with expert editing skills. Professional, responsive, and a true collaborator throughout the entire process."</p>
+        <div class="tcard-author">Vanya Zaharieva</div>
+      </div>
+      <div class="tcard reveal delay-3">
+        <p class="tcard-quote">"Working with Vladi was a pleasure. Their creativity exceeded our expectations — exactly what we needed to capture our audience's attention."</p>
+        <div class="tcard-author">Kapki na Dr. Bach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <span class="section-eyebrow reveal">Get in Touch</span>
+    <h2 class="section-title reveal delay-1">Ready to collaborate?</h2>
+    <p class="contact-sub reveal delay-2">Whether it's a single reel, a full launch campaign, or an ongoing content partnership — let's make something that performs.</p>
+    <div class="contact-cards reveal delay-3">
+      <a href="mailto:vlnikolov77@gmail.com" class="ccard"><span class="ccard-icon">✉</span> vlnikolov77@gmail.com</a>
+      <a href="tel:+359896868198" class="ccard"><span class="ccard-icon">📞</span> +359 896 868 198</a>
+      <a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" class="ccard"><span class="ccard-icon">🔗</span> LinkedIn</a>
+      <a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" class="ccard"><span class="ccard-icon">💼</span> Upwork</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Vladi Nikolov · AI Marketing Strategist &amp; Creator · Sofia, Bulgaria ·
+  <a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a>
+</footer>
+
+<script>
+/* ── SCROLL REVEAL ───────────────────────────────────────────────────────── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+/* ── SKILL BARS ──────────────────────────────────────────────────────────── */
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.skills-block').forEach(el => barObserver.observe(el));
+
+/* ── COUNTER ANIMATION ───────────────────────────────────────────────────── */
+function animateCount(el) {
+  const target  = parseFloat(el.dataset.count);
+  const suffix  = el.dataset.suffix  || '';
+  const prefix  = el.dataset.prefix  || '';
+  const decimal = parseInt(el.dataset.decimal) || 0;
+  const duration = 1800;
+  const start    = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease     = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const current  = target * ease;
+    el.textContent = prefix + current.toFixed(decimal) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.mnum[data-count]').forEach(animateCount);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.metrics-strip').forEach(el => counterObserver.observe(el));
+
+/* ── NAV SCROLL SHRINK ───────────────────────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.padding = window.scrollY > 60 ? '10px 24px' : '14px 24px';
+}, { passive: true });
+</script>
+</body>
+</html>
