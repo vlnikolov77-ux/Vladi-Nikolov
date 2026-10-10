@@ -190,9 +190,15 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 /* ---------- work ---------- */
 .work{background:var(--night);color:var(--white);position:relative;overflow:hidden}
 .work .lead{color:#B9C8DA}
-.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px}
+.reels{display:flex;gap:20px;margin-top:44px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:14px;scrollbar-width:none}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 calc((100% - 80px)/4.4);scroll-snap-align:start}
+.work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.work-nav{display:flex;gap:10px;flex:none}
+.work-nav button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:transparent;color:var(--white);cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.work-nav button:hover{background:var(--signal);border-color:var(--signal)}
+.work-nav svg{width:20px;height:20px}
 .reel p{font-size:14.5px}
-.reel:nth-child(even){transform:translateY(48px)}
 .reel-frame{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:var(--night-2);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:transform .4s}
 .reel:hover .reel-frame{transform:translateY(-6px) rotate(-1deg)}
 .reel-frame video,.reel-frame iframe,.reel-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
@@ -301,7 +307,7 @@ footer .social a:hover{color:var(--sky)}
   .proof{grid-template-columns:repeat(2,auto)}
   .reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:28px;margin:40px -28px 0;padding:0 28px 12px;scrollbar-width:none}
   .reels::-webkit-scrollbar{display:none}
-  .reel{flex:0 0 min(280px,70%);scroll-snap-align:start}
+  .reel{flex:0 0 min(280px,70%)}
   .reel:nth-child(even){transform:none}
   .steps{grid-template-columns:repeat(2,1fr)}
   .svc-row{grid-template-columns:1fr;gap:14px}
@@ -324,6 +330,7 @@ footer .social a:hover{color:var(--sky)}
   .proof b{font-size:28px}
   .reels{gap:14px;scroll-padding-inline:18px;margin:36px -18px 0;padding:0 18px 12px}
   .reel{flex:0 0 72%}
+  .work-nav{display:none}
   h2{font-size:30px}
   .lead{font-size:16.5px}
   .about p{font-size:16px}
@@ -485,9 +492,14 @@ footer .social a:hover{color:var(--sky)}
 
 <section class="work" id="work">
   <div class="wrap">
-    <div class="rv">
+    <div class="work-head rv"><div>
       <h2 data-i18n="work.title">Работа, която можеш да видиш</h2>
       <p class="lead" data-i18n="work.lead">Истински проекти за истински бизнеси. Видеата са вертикални, защото там е вниманието днес.</p>
+    </div>
+      <div class="work-nav" aria-label="Проекти">
+        <button type="button" data-dir="-1" aria-label="Предишен проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Следващ проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
     </div>
     <div class="reels">
       <article class="reel rv">
@@ -497,6 +509,14 @@ footer .social a:hover{color:var(--sky)}
         </div>
         <p data-i18n="w6.desc">Детски спектакъл на „Камбана Арт“ по Милена Маат: трейлърът и AI мултимедията за сцената. Игран в НБУ, Театър „Хенд“ и „Топлоцентрала“.</p>
         <p class="result" data-i18n="w6.res">С подкрепата на Национален фонд „Култура“</p>
+      </article>
+      <article class="reel rv">
+        <div class="reel-frame" data-video="assets/work-imot.mp4" data-poster="assets/work-imot.jpg">
+          <div class="reel-empty" style="--a:#E0A060;--b:#2E5D3A"></div><span class="play" aria-hidden="true"></span>
+          <div class="reel-label"><b data-i18n="w7.name">Къща в Панчарево</b><span data-i18n="work.i">Видео на имот от снимки</span></div>
+        </div>
+        <p data-i18n="w7.desc">Видео на имот само по снимки, без снимачен екип. Подходящо за профилите на брокери в Instagram и TikTok, за ново строителство по визуализации и за обяви под наем и в Airbnb.</p>
+        <p class="result" data-i18n="w7.res">Готово за обявата и социалните мрежи</p>
       </article>
       <article class="reel rv">
         <div class="reel-frame" data-video="assets/work-kapki-bah.mp4" data-poster="assets/work-kapki-bah.jpg">
@@ -704,6 +724,10 @@ if('IntersectionObserver' in window && !reduce){
   setTimeout(function(){document.querySelectorAll('[data-count]').forEach(countUp);},700);
 }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
 
+/* work carousel arrows */
+(function(){var r=document.querySelector('.reels');if(!r)return;
+document.querySelectorAll('.work-nav button').forEach(function(b){b.addEventListener('click',function(){var c=r.querySelector('.reel');var step=c?c.getBoundingClientRect().width+20:300;r.scrollBy({left:step*(+b.dataset.dir),behavior:reduce?'auto':'smooth'});});});})();
+
 /* video slots: put an .mp4 path or a YouTube/Vimeo embed URL in data-video */
 document.querySelectorAll('.reel-frame[data-video]').forEach(function(f){
   var src=f.getAttribute('data-video');if(!src)return;var el;
@@ -751,7 +775,7 @@ var EN={
  "s6.price":"<span class=\"cur\">€</span>250","s6.small":"for 2 hours",
  "svc.note":"Payment: 50% upfront, 50% on delivery. Monthly plans have a 3-month minimum. Social media plus Google profile upkeep together: 10% off.",
  "man.p":"“People don’t buy AI. They buy more customers.”","man.s":"That is why every video, post and page starts with one question: what will it bring your business?",
- "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices and photos. A branded QR code on cups, products and the shop window.","w5.res":"The menu on your phone in one scan",
+ "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w7.name":"House in Pancharevo","work.i":"Property video from photos","w7.desc":"A property video made from photos only, no film crew. Made for brokers\u2019 Instagram and TikTok, new builds from renderings, and rental and Airbnb listings.","w7.res":"Ready for the listing and social media","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices and photos. A branded QR code on cups, products and the shop window.","w5.res":"The menu on your phone in one scan",
  "w1.desc":"Full campaign for an online shop: AI video, talking avatar, giveaway, emails and Viber messages.","w1.res":"Video, email and Viber, delivered solo",
  "w2.desc":"Fresh bar in Sofia: product videos for social media, branded QR code and Google profile.","w2.res":"Video, QR code and Google profile",
  "w3.desc":"National charity event: campaign, partners and instructor coordination.","w3.res":"15 cities, around 1,000 participants",
