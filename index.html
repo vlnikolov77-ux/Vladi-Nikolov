@@ -229,6 +229,15 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin-top:28px;list-style:none}
 .facts li{border-left:3px solid var(--signal);padding-left:14px;color:#2A3B54;font-size:16px}
 .facts b{display:block;color:var(--ink)}
+.certs-h{font-family:var(--display);font-size:20px;margin:34px 0 14px}
+.certs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.certs li{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 16px;transition:border-color .25s,transform .25s}
+.certs li:hover{border-color:var(--sky);transform:translateY(-2px)}
+.certs b{display:block;font-size:15px;line-height:1.3}
+.certs span{display:block;font-size:13.5px;color:var(--slate);margin-top:3px}
+.certs .cert-top{grid-column:1/-1;background:var(--night);border-color:var(--night);color:var(--white);position:relative;padding-right:70px}
+.certs .cert-top span{color:var(--sky)}
+.certs .cert-top::after{content:"6.00";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:22px;color:var(--signal)}
 
 /* ---------- reviews ---------- */
 .quotes{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:44px}
@@ -310,7 +319,7 @@ footer .social a:hover{color:var(--sky)}
   .reel{flex:0 0 72%;scroll-snap-align:start}
   .reel:nth-child(even){transform:none}
   .reel p{font-size:14px}
-  .steps,.facts{grid-template-columns:1fr}
+  .steps,.facts,.certs{grid-template-columns:1fr}
   .svc-row{padding:28px 16px;margin:0 -16px}
   .svc-row::after{left:16px;right:16px}
   .quote{padding:28px}
@@ -519,10 +528,19 @@ footer .social a:hover{color:var(--sky)}
       <p data-i18n="about.p1">Повече от 5 години правя маркетинг, който се измерва в продажби, а не в харесвания. Тествал съм над 150 AI инструмента и ползвам най-добрите от тях в реални кампании: видео, имейли, социални мрежи и сайтове.</p>
       <p data-i18n="about.p2">Преди това ръководих спортен център и увеличих приходите му с 40%. Член съм на глобалния съвет на общността на Zumba® Fitness. Знам как се изграждат общности и как се говори с хора, а това е половината от добрия маркетинг.</p>
       <ul class="facts">
-        <li><b data-i18n="f1.b">Сертификати</b><span data-i18n="f1.s">Meta Blueprint, Google Analytics 4, HubSpot Email Marketing</span></li>
+        <li><b data-i18n="f1.b">Образование</b><span data-i18n="f1.s">Нов български университет, Американски университет в България</span></li>
         <li><b data-i18n="f2.b">Инструменти</b><span data-i18n="f2.s">Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude</span></li>
         <li><b data-i18n="f3.b">Езици</b><span data-i18n="f3.s">Български и английски</span></li>
         <li><b data-i18n="f4.b">Работя</b><span data-i18n="f4.s">На място в София и онлайн с клиенти навсякъде</span></li>
+      </ul>
+      <h3 class="certs-h" data-i18n="cert.h">Сертификати</h3>
+      <ul class="certs">
+        <li class="cert-top"><b>AI for Marketing</b><span data-i18n="cert1">SoftUni · 2025 · с отличие</span></li>
+        <li><b>Social Media Marketing</b><span>Zumba® Global Network</span></li>
+        <li><b>Meta Blueprint</b><span data-i18n="cert3">Маркетинг в социалните мрежи</span></li>
+        <li><b>Google Analytics 4</b><span>Google</span></li>
+        <li><b>Email Marketing</b><span>HubSpot Academy</span></li>
+        <li><b>Zumba® International Instructor</b><span data-i18n="cert6">Лицензиран фитнес и денс треньор</span></li>
       </ul>
     </div>
   </div>
@@ -705,7 +723,7 @@ var EN={
  "about.years":"years in marketing","about.title":"Hi, I’m Vladi",
  "about.p1":"For over 5 years I have done marketing measured in sales, not likes. I have tested more than 150 AI tools and use the best of them in real campaigns: video, email, social media and websites.",
  "about.p2":"Before that I ran a sports centre and grew its revenue by 40%. I sit on the global community council of Zumba® Fitness. I know how communities are built and how to talk to people, which is half of good marketing.",
- "f1.b":"Certifications","f1.s":"Meta Blueprint, Google Analytics 4, HubSpot Email Marketing","f2.b":"Tools","f2.s":"Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude",
+ "f1.b":"Education","f1.s":"New Bulgarian University, American University in Bulgaria","cert.h":"Certifications","cert1":"SoftUni · 2025 · with excellence","cert3":"Social media marketing","cert6":"Licensed fitness and dance coach","f2.b":"Tools","f2.s":"Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude",
  "f3.b":"Languages","f3.s":"Bulgarian and English","f4.b":"Where","f4.s":"On site in Sofia and online with clients anywhere",
  "rev.title":"What clients say",
  "q1":"“Vladi brought our project to life with expert editing. Professional, responsive and a true collaborator throughout the process.”",
