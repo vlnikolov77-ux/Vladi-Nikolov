@@ -168,7 +168,17 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 .svc-row li{padding-left:22px;position:relative;margin-bottom:8px;color:#2A3B54;transition:color .3s}
 .svc-row li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:3px;border-radius:2px;background:var(--signal)}
 .price{text-align:right}
-.price b{font-family:var(--display);font-size:32px;line-height:1.1;display:block}
+.price b{font-family:var(--display);font-size:clamp(34px,3.4vw,46px);line-height:1;display:flex;align-items:baseline;justify-content:flex-end;gap:.08em;letter-spacing:-0.01em;white-space:nowrap;transition:color .35s,transform .35s;transform-origin:right center}
+.price b.range{font-size:clamp(28px,2.6vw,36px)}
+.price .cur{font-family:var(--body);font-weight:700;font-size:.62em;margin-left:.12em;color:var(--signal)}
+.price .from{font-family:var(--body);font-weight:500;font-size:.4em;color:var(--slate);margin-right:.5em;align-self:center;transition:color .35s}
+.ask{display:inline-flex;margin-top:0;max-height:0;overflow:hidden;padding-top:0!important;padding-bottom:0!important;font:700 14px/1 var(--body);color:var(--night);background:var(--sky);padding:10px 16px;border-radius:999px;text-decoration:none;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s,background .2s,max-height .35s,margin-top .35s,padding .35s}
+.ask:hover{background:var(--white)}
+.svc-row:hover .ask,.svc-row:focus-within .ask{opacity:1;transform:none;max-height:60px;margin-top:14px;padding-top:10px!important;padding-bottom:10px!important}
+.svc-row:hover .price b{color:var(--sky);transform:scale(1.06)}
+.svc-row:hover .from{color:var(--mist)}
+.svc-row::before{content:"";position:absolute;left:0;top:26px;bottom:26px;width:4px;border-radius:4px;background:var(--signal);transform:scaleY(0);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.svc-row:hover::before{transform:scaleY(1)}
 .price small{color:var(--slate);font-size:14px;display:block;margin-top:6px;transition:color .3s}
 .price-note{margin-top:26px;color:var(--slate);font-size:15px;max-width:80ch}
 
@@ -280,6 +290,8 @@ footer .social a:hover{color:var(--sky)}
   .steps{grid-template-columns:repeat(2,1fr)}
   .svc-row{grid-template-columns:1fr;gap:14px}
   .price{text-align:left}
+  .price b{justify-content:flex-start;transform-origin:left center}
+  .ask{opacity:1;transform:none;max-height:60px;margin-top:14px;padding-top:10px!important;padding-bottom:10px!important}
   .quotes{grid-template-columns:1fr}
   .photo{max-width:440px}
 }
@@ -407,32 +419,32 @@ footer .social a:hover{color:var(--sky)}
       <div class="svc-row rv">
         <div><h3 data-i18n="s1.name">Кратки видеа и AI реклами</h3><p data-i18n="s1.desc">Вертикални видеа до 60 секунди за Instagram, TikTok, Facebook и YouTube Shorts.</p></div>
         <ul data-i18n="s1.list"><li>Идея и сценарий с кука в първите 2 секунди</li><li>AI визуализация, надписи и музика</li><li>1–2 корекции на всяко видео</li></ul>
-        <div class="price"><b data-i18n="s1.price">60&nbsp;€</b><small data-i18n="s1.small">за видео · пакет от 4 за 240&nbsp;€</small></div>
+        <div class="price"><b data-i18n="s1.price">60<span class="cur">€</span></b><small data-i18n="s1.small">за видео · пакет от 4 за 240&nbsp;€</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s2.name">Социални мрежи</h3><p data-i18n="s2.desc">Поемаме профилите ти изцяло: план, съдържание, публикуване, отчет.</p></div>
         <ul data-i18n="s2.list"><li>Старт: 2 платформи, 10 публикации, 4 видеа</li><li>Растеж: до 3 платформи, 16 публикации, 8 видеа, настройка на реклама</li><li>Месечен отчет с резултати</li></ul>
-        <div class="price"><b data-i18n="s2.price">от 390&nbsp;€</b><small data-i18n="s2.small">на месец · Растеж 690&nbsp;€</small></div>
+        <div class="price"><b data-i18n="s2.price"><span class="from">от</span> 390<span class="cur">€</span></b><small data-i18n="s2.small">на месец · Растеж 690&nbsp;€</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s3.name">Google бизнес профил</h3><p data-i18n="s3.desc">Да те намират в Google Maps, когато някой търси „близо до мен“.</p></div>
         <ul data-i18n="s3.list"><li>Настройка: категории, услуги, снимки, описание</li><li>Стратегия за повече ревюта</li><li>Поддръжка: публикации и отговори на ревюта</li></ul>
-        <div class="price"><b data-i18n="s3.price">180&nbsp;€</b><small data-i18n="s3.small">настройка · поддръжка 90&nbsp;€ на месец</small></div>
+        <div class="price"><b data-i18n="s3.price">180<span class="cur">€</span></b><small data-i18n="s3.small">настройка · поддръжка 90&nbsp;€ на месец</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s4.name">Сайтове, лендинги и дигитални менюта</h3><p data-i18n="s4.desc">Бързи страници, които се отварят добре на телефон и водят до запитване.</p></div>
         <ul data-i18n="s4.list"><li>Дигитално меню или сайт-визитка с QR код</li><li>Лендинг страница с форма и аналитика</li><li>Хостинг при мен или готов код за твоя хостинг</li></ul>
-        <div class="price"><b data-i18n="s4.price">от 350&nbsp;€</b><small data-i18n="s4.small">меню или визитка · <span style="white-space:nowrap">лендинг 700–1&nbsp;200&nbsp;€</span></small></div>
+        <div class="price"><b data-i18n="s4.price"><span class="from">от</span> 350<span class="cur">€</span></b><small data-i18n="s4.small">меню или визитка · <span style="white-space:nowrap">лендинг 700–1&nbsp;200&nbsp;€</span></small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s5.name">AI рекламна кампания</h3><p data-i18n="s5.desc">Цялостна кампания за продукт, услуга или събитие.</p></div>
         <ul data-i18n="s5.list"><li>Главно видео и карусел</li><li>Рекламни текстове</li><li>3 имейла за продажба</li></ul>
-        <div class="price"><b data-i18n="s5.price">900–1&nbsp;500&nbsp;€</b><small data-i18n="s5.small">според обхвата</small></div>
+        <div class="price"><b data-i18n="s5.price" class="range">900–1&nbsp;500<span class="cur">€</span></b><small data-i18n="s5.small">според обхвата</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s6.name">AI обучение за екипа</h3><p data-i18n="s6.desc">Как твоят екип сам да прави видео и съдържание с AI.</p></div>
         <ul data-i18n="s6.list"><li>2 часа на място или онлайн</li><li>Инструменти, които ползвам всеки ден</li><li>Готови шаблони за работа</li></ul>
-        <div class="price"><b data-i18n="s6.price">250&nbsp;€</b><small data-i18n="s6.small">за 2 часа</small></div>
+        <div class="price"><b data-i18n="s6.price">250<span class="cur">€</span></b><small data-i18n="s6.small">за 2 часа</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
     </div>
     <p class="price-note" data-i18n="svc.note">Плащане: 50% аванс и 50% при предаване. Месечните пакети са с минимален срок 3 месеца. Социални мрежи и поддръжка на Google профил заедно: 10% отстъпка.</p>
@@ -661,23 +673,23 @@ var EN={
  "hero.note":"more views than usual",
  "band":"Short videos","band2":"Social media","band3":"Google Business Profile","band4":"Websites and menus","band5":"Ad campaigns","band6":"AI training",
  "clients.label":"I have worked with",
- "svc.title":"Services and prices","svc.lead":"Prices are clear from the start. You get an exact quote after a short free call where we pin down what you need.",
+ "ask":"Get a quote","svc.title":"Services and prices","svc.lead":"Prices are clear from the start. You get an exact quote after a short free call where we pin down what you need.",
  "s1.name":"Short videos and AI ads","s1.desc":"Vertical videos up to 60 seconds for Instagram, TikTok, Facebook and YouTube Shorts.",
  "s1.list":"<li>Idea and script with a hook in the first 2 seconds</li><li>AI visuals, captions and music</li><li>1–2 revisions per video</li>",
- "s1.price":"€60","s1.small":"per video · pack of 4 for €240",
+ "s1.price":"<span class=\"cur\">€</span>60","s1.small":"per video · pack of 4 for €240",
  "s2.name":"Social media","s2.desc":"We take over your profiles: plan, content, publishing, report.",
  "s2.list":"<li>Start: 2 platforms, 10 posts, 4 videos</li><li>Growth: up to 3 platforms, 16 posts, 8 videos, ad setup</li><li>Monthly results report</li>",
- "s2.price":"from €390","s2.small":"per month · Growth €690",
+ "s2.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>390","s2.small":"per month · Growth €690",
  "s3.name":"Google Business Profile","s3.desc":"Get found on Google Maps when people search “near me”.",
  "s3.list":"<li>Setup: categories, services, photos, description</li><li>A plan for more reviews</li><li>Upkeep: posts and review replies</li>",
- "s3.price":"€180","s3.small":"setup · upkeep €90 per month",
+ "s3.price":"<span class=\"cur\">€</span>180","s3.small":"setup · upkeep €90 per month",
  "s4.name":"Websites, landing pages and digital menus","s4.desc":"Fast pages that work well on a phone and lead to an enquiry.",
  "s4.list":"<li>Digital menu or one-page site with QR code</li><li>Landing page with form and analytics</li><li>Hosted by me, or ready code for your hosting</li>",
- "s4.price":"from €350","s4.small":"menu or one-pager · <span style=\"white-space:nowrap\">landing page €700–1,200</span>",
+ "s4.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>350","s4.small":"menu or one-pager · <span style=\"white-space:nowrap\">landing page €700–1,200</span>",
  "s5.name":"AI ad campaign","s5.desc":"A complete campaign for a product, service or event.","s5.list":"<li>Hero video and carousel</li><li>Ad copy</li><li>3 sales emails</li>",
- "s5.price":"€900–1,500","s5.small":"depending on scope",
+ "s5.price":"<span class=\"cur\">€</span>900–1,500","s5.small":"depending on scope",
  "s6.name":"AI training for your team","s6.desc":"How your team can make video and content with AI on its own.","s6.list":"<li>2 hours on site or online</li><li>The tools I use every day</li><li>Ready-to-use templates</li>",
- "s6.price":"€250","s6.small":"for 2 hours",
+ "s6.price":"<span class=\"cur\">€</span>250","s6.small":"for 2 hours",
  "svc.note":"Payment: 50% upfront, 50% on delivery. Monthly plans have a 3-month minimum. Social media plus Google profile upkeep together: 10% off.",
  "man.p":"“People don’t buy AI. They buy more customers.”","man.s":"That is why every video, post and page starts with one question: what will it bring your business?",
  "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event",
