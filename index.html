@@ -49,7 +49,7 @@
   --wrap:1200px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video,iframe{display:block;max-width:100%}
 a{color:inherit}
@@ -223,7 +223,7 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 .about{background:var(--white)}
 .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
 .photo{position:relative}
-.photo img{border-radius:32px;aspect-ratio:4/5;width:100%;object-fit:cover;object-position:50% 22%;position:relative;z-index:1}
+.photo img{border-radius:32px;aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;object-position:50% 22%;position:relative;z-index:1}
 .photo::before{content:"";position:absolute;inset:24px -24px -24px 24px;border-radius:32px;background:var(--sky)}
 .photo .float{z-index:2;left:auto;right:-28px;top:auto;bottom:40px}
 .about p{margin-bottom:16px;max-width:60ch;font-size:18px}
@@ -280,7 +280,8 @@ textarea{min-height:100px;resize:vertical}
 
 /* ---------- footer ---------- */
 footer{background:var(--night);color:var(--mist);padding:0 0 36px;overflow:hidden}
-.wordmark{font-family:var(--display);font-size:clamp(48px,12vw,176px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(168,212,255,.35);white-space:nowrap;letter-spacing:-0.02em;padding:40px 0 30px;text-align:center}
+.wordmark{display:block;width:100%;max-width:1240px;margin:0 auto;height:auto;padding:36px 20px 26px;box-sizing:border-box}
+.wordmark text{font-family:var(--display);font-size:120px;fill:none;stroke:rgba(168,212,255,.55);stroke-width:2}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:15px;border-top:1px solid rgba(255,255,255,.08);padding-top:26px}
 footer a{color:var(--white)}
 footer .social{display:flex;flex-wrap:wrap;gap:8px 22px}
@@ -298,15 +299,18 @@ footer .social a:hover{color:var(--sky)}
   .stage{margin-top:28px}
   .f2{left:-16px;top:auto;bottom:18%}
   .proof{grid-template-columns:repeat(2,auto)}
-  .reels{grid-template-columns:repeat(2,1fr);gap:18px}
-  .reel:nth-child(even){transform:translateY(32px)}
+  .reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:28px;margin:40px -28px 0;padding:0 28px 12px;scrollbar-width:none}
+  .reels::-webkit-scrollbar{display:none}
+  .reel{flex:0 0 min(280px,70%);scroll-snap-align:start}
+  .reel:nth-child(even){transform:none}
   .steps{grid-template-columns:repeat(2,1fr)}
   .svc-row{grid-template-columns:1fr;gap:14px}
   .price{text-align:left}
   .price b{justify-content:flex-start;transform-origin:left center}
   .ask{opacity:1;transform:none;max-height:60px;margin-top:14px;padding-top:10px!important;padding-bottom:10px!important}
   .quotes,.rev-head{grid-template-columns:1fr}
-    .photo{max-width:440px}
+  .photo{max-width:320px;margin:0 auto;width:100%}
+  .about .wrap{gap:40px}
 }
 @media (max-width:600px){
   body{font-size:16px}
@@ -318,10 +322,19 @@ footer .social a:hover{color:var(--sky)}
   .hero{padding:118px 0 80px}
     .proof{gap:24px}
   .proof b{font-size:28px}
-  .reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:18px;margin:40px -18px 0;padding:0 18px 12px;scrollbar-width:none}
-  .reels::-webkit-scrollbar{display:none}
-  .reel{flex:0 0 72%;scroll-snap-align:start}
-  .reel:nth-child(even){transform:none}
+  .reels{gap:14px;scroll-padding-inline:18px;margin:36px -18px 0;padding:0 18px 12px}
+  .reel{flex:0 0 72%}
+  h2{font-size:30px}
+  .lead{font-size:16.5px}
+  .about p{font-size:16px}
+  .photo{max-width:250px;margin:0 auto}
+  .photo .float{bottom:18px}
+  .photo .float b{font-size:22px}
+  footer .wrap{font-size:14px}
+  .quote p{font-size:16px}
+  .svc-row h3{font-size:21px}
+  .steps li::before{font-size:48px}
+  .manifesto p{font-size:30px}
   .reel p{font-size:14px}
   .steps,.facts,.certs{grid-template-columns:1fr}
   .svc-row{padding:28px 16px;margin:0 -16px}
@@ -514,8 +527,8 @@ footer .social a:hover{color:var(--sky)}
           <div class="reel-empty" style="--a:#F29A3A;--b:#C2185B"></div><span class="play" aria-hidden="true"></span>
           <div class="reel-label"><b>FruitAdaY</b><span data-i18n="work.m">Дигитално меню</span></div>
         </div>
-        <p data-i18n="w5.desc">Двуезично меню за фреш бар на бул. „Витоша“: категории, цени, снимки и QR код на масата.</p>
-        <p class="result" data-i18n="w5.res">Цялото меню на телефона, от QR код</p>
+        <p data-i18n="w5.desc">Двуезично меню за фреш бар на бул. „Витоша“: категории, цени и снимки. Брандиран QR код на чашите, продуктите и витрината.</p>
+        <p class="result" data-i18n="w5.res">Менюто на телефона с едно сканиране</p>
       </article>
     </div>
   </div>
@@ -640,7 +653,7 @@ footer .social a:hover{color:var(--sky)}
 </main>
 
 <footer>
-  <div class="wordmark" aria-hidden="true">VLADIATOR</div>
+  <svg class="wordmark" viewBox="0 0 1000 130" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><text x="500" y="112" text-anchor="middle" textLength="980" lengthAdjust="spacingAndGlyphs">VLADIATOR</text></svg>
   <div class="wrap">
     <span>© 2026 Vladiator Digital · Владимир Николов · София</span>
     <span class="social"><a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener">Upwork</a><a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a></span>
@@ -738,7 +751,7 @@ var EN={
  "s6.price":"<span class=\"cur\">€</span>250","s6.small":"for 2 hours",
  "svc.note":"Payment: 50% upfront, 50% on delivery. Monthly plans have a 3-month minimum. Social media plus Google profile upkeep together: 10% off.",
  "man.p":"“People don’t buy AI. They buy more customers.”","man.s":"That is why every video, post and page starts with one question: what will it bring your business?",
- "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices, photos and a QR code on every table.","w5.res":"The whole menu on your phone, from a QR code",
+ "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices and photos. A branded QR code on cups, products and the shop window.","w5.res":"The menu on your phone in one scan",
  "w1.desc":"Full campaign for an online shop: AI video, talking avatar, giveaway, emails and Viber messages.","w1.res":"Video, email and Viber, delivered solo",
  "w2.desc":"Fresh bar in Sofia: product videos for social media, branded QR code and Google profile.","w2.res":"Video, QR code and Google profile",
  "w3.desc":"National charity event: campaign, partners and instructor coordination.","w3.res":"15 cities, around 1,000 participants",
