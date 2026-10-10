@@ -233,6 +233,11 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 .photo::before{content:"";position:absolute;inset:24px -24px -24px 24px;border-radius:32px;background:var(--sky)}
 .photo .float{z-index:2;left:auto;right:-28px;top:auto;bottom:40px}
 .about p{margin-bottom:16px;max-width:60ch;font-size:18px}
+.trust{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 8px}
+.trust li{position:relative;background:var(--night);color:var(--white);border-radius:18px;padding:18px 18px 18px 54px}
+.trust li::before{content:"";position:absolute;left:18px;top:20px;width:22px;height:22px;border-radius:50%;background:var(--signal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' stroke='%23fff' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.trust b{display:block;font-size:16px;margin-bottom:4px}
+.trust span{display:block;font-size:14px;line-height:1.45;color:#C9D7E6}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin-top:28px;list-style:none}
 .facts li{border-left:3px solid var(--signal);padding-left:14px;color:#2A3B54;font-size:16px}
 .facts b{display:block;color:var(--ink)}
@@ -343,7 +348,7 @@ footer .social a:hover{color:var(--sky)}
   .steps li::before{font-size:48px}
   .manifesto p{font-size:30px}
   .reel p{font-size:14px}
-  .steps,.facts,.certs{grid-template-columns:1fr}
+  .steps,.facts,.certs,.trust{grid-template-columns:1fr}
   .svc-row{padding:28px 16px;margin:0 -16px}
   .svc-row::after{left:16px;right:16px}
   .quote,  form{padding:24px}
@@ -579,6 +584,12 @@ footer .social a:hover{color:var(--sky)}
       <h2 data-i18n="about.title">Здравей, аз съм Влади</h2>
       <p data-i18n="about.p1">Повече от 5 години правя маркетинг, който се измерва в продажби, а не в харесвания. Тествал съм над 150 AI инструмента и ползвам най-добрите от тях в реални кампании: видео, имейли, социални мрежи и сайтове.</p>
       <p data-i18n="about.p2">Преди това ръководих спортен център и увеличих приходите му с 40%. Член съм на глобалния съвет на общността на Zumba® Fitness. Знам как се изграждат общности и как се говори с хора, а това е половината от добрия маркетинг.</p>
+      <ul class="trust">
+        <li><b data-i18n="t1.b">Работиш директно с мен</b><span data-i18n="t1.s">Един човек за контакт от първия разговор до отчета. Отговарям до 24 часа в работни дни.</span></li>
+        <li><b data-i18n="t2.b">Клиенти с високи изисквания</b><span data-i18n="t2.s">Проекти за хора от банковия сектор и държавната администрация, с проверени отзиви в Upwork.</span></li>
+        <li><b data-i18n="t3.b">Култура и изкуство</b><span data-i18n="t3.s">AI създател на съдържание за детски спектакъл с подкрепата на Национален фонд „Култура“.</span></li>
+        <li><b data-i18n="t4.b">Национални кампании</b><span data-i18n="t4.s">Организатор на Party in Pink Zumbathon в 15 града, в полза на жените с рак на гърдата.</span></li>
+      </ul>
       <ul class="facts">
         <li><b data-i18n="f1.b">Образование</b><span data-i18n="f1.s">Нов български университет, Американски университет в България</span></li>
         <li><b data-i18n="f2.b">Инструменти</b><span data-i18n="f2.s">Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude</span></li>
@@ -788,6 +799,7 @@ var EN={
  "about.years":"years in marketing","about.title":"Hi, I’m Vladi",
  "about.p1":"For over 5 years I have done marketing measured in sales, not likes. I have tested more than 150 AI tools and use the best of them in real campaigns: video, email, social media and websites.",
  "about.p2":"Before that I ran a sports centre and grew its revenue by 40%. I sit on the global community council of Zumba® Fitness. I know how communities are built and how to talk to people, which is half of good marketing.",
+ "t1.b":"You work with me directly","t1.s":"One point of contact from the first call to the report. I reply within 24 hours on working days.","t2.b":"Demanding clients","t2.s":"Projects for people in banking and public administration, with verified reviews on Upwork.","t3.b":"Culture and the arts","t3.s":"AI content creator for a children\u2019s show supported by the National Culture Fund.","t4.b":"National campaigns","t4.s":"Organiser of Party in Pink Zumbathon across 15 cities, supporting women affected by breast cancer.",
  "f1.b":"Education","f1.s":"New Bulgarian University, American University in Bulgaria","cert.h":"Certifications","cert1":"SoftUni · 2025 · with excellence","cert3":"Social media marketing","cert6":"Licensed fitness and dance coach","f2.b":"Tools","f2.s":"Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude",
  "f3.b":"Languages","f3.s":"Bulgarian and English","f4.b":"Where","f4.s":"On site in Sofia and online with clients anywhere",
  "rev.lead":"Reviews from real projects: banking, public administration and marketing campaigns.","rev.ver":"Verified on Upwork","rev.note":"Upwork reviews are quoted from the original English.",
