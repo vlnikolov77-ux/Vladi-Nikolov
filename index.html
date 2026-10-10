@@ -14,7 +14,7 @@
 <link rel="preload" href="assets/fonts/dela-gothic-one-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Vladiator Digital","description":"Видео, социални мрежи, сайтове и Google бизнес профил за малки и средни бизнеси.","founder":{"@type":"Person","name":"Владимир Николов"},"telephone":"+359896868198","email":"vlnikolov77@gmail.com","address":{"@type":"PostalAddress","addressLocality":"София","addressCountry":"BG"},"sameAs":["https://www.linkedin.com/in/vladiator-z-vladi-nikolov/","https://www.upwork.com/freelancers/~0113d65544fbe9bd6b"]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Vladiator Digital","description":"Видео, социални мрежи, сайтове и Google бизнес профил за малки и средни бизнеси.","founder":{"@type":"Person","name":"Владимир Николов"},"telephone":"+359896868198","email":"vlnikolov77@gmail.com","address":{"@type":"PostalAddress","addressLocality":"София","addressCountry":"BG"},"sameAs":["https://www.instagram.com/vladiator_a.i/","https://www.linkedin.com/in/vladiator-z-vladi-nikolov/","https://www.upwork.com/freelancers/~0113d65544fbe9bd6b"]}
 </script>
 <style>
 /* ---------- fonts (self-hosted, Cyrillic + Latin) ---------- */
@@ -76,6 +76,9 @@ section{padding:110px 0}
 .nav-links a{text-decoration:none;color:#C9D7E6;font-weight:500;font-size:16px;transition:color .2s}
 .nav-links a:hover{color:var(--white)}
 .nav-right{display:flex;align-items:center;gap:12px}
+.nav-ig{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);color:#C9D7E6;transition:color .2s,border-color .2s}
+.nav-ig:hover{color:var(--white);border-color:var(--sky)}
+.nav-ig svg{width:20px;height:20px}
 .lang{display:flex;border:1px solid rgba(255,255,255,.2);border-radius:999px;overflow:hidden}
 .lang button{font:700 13px/1 var(--body);padding:9px 12px;border:0;background:transparent;color:#C9D7E6;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--sky);color:var(--night)}
@@ -258,6 +261,9 @@ footer{background:var(--night);color:var(--mist);padding:0 0 36px;overflow:hidde
 .wordmark{font-family:var(--display);font-size:clamp(48px,12vw,176px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(168,212,255,.35);white-space:nowrap;letter-spacing:-0.02em;padding:40px 0 30px;text-align:center}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:15px;border-top:1px solid rgba(255,255,255,.08);padding-top:26px}
 footer a{color:var(--white)}
+footer .social{display:flex;flex-wrap:wrap;gap:8px 22px}
+footer .social a{text-decoration:none}
+footer .social a:hover{color:var(--sky)}
 
 /* ---------- reveal (one consistent rise on scroll) ---------- */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -319,6 +325,7 @@ footer a{color:var(--white)}
       <li><a href="#about" data-i18n="nav.about">За мен</a></li>
     </ul>
     <div class="nav-right">
+      <a class="nav-ig" href="https://www.instagram.com/vladiator_a.i/" target="_blank" rel="noopener" aria-label="Instagram @vladiator_a.i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
       <div class="lang" role="group" aria-label="Език">
         <button type="button" data-lang="bg" aria-pressed="true">BG</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -552,6 +559,7 @@ footer a{color:var(--white)}
       <ul class="channels">
         <li><a href="viber://chat?number=%2B359896868198"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#7360F2"/><path d="M8.5 7.2c.4-.4 1-.4 1.3 0l1.2 1.6c.3.4.2.9-.1 1.2l-.6.6c.6 1.3 1.6 2.4 3 3l.6-.6c.3-.3.8-.4 1.2-.1l1.6 1.2c.4.3.4.9 0 1.3l-.7.7c-.7.7-1.8.8-2.7.3-2.3-1.2-4.1-3-5.3-5.3-.5-.9-.4-2 .3-2.7z" fill="#fff"/></svg><span>Viber<small>+359 896 868 198</small></span></a></li>
         <li><a href="tel:+359896868198"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#FF3B4E"/><path d="M8.5 7.2c.4-.4 1-.4 1.3 0l1.2 1.6c.3.4.2.9-.1 1.2l-.6.6c.6 1.3 1.6 2.4 3 3l.6-.6c.3-.3.8-.4 1.2-.1l1.6 1.2c.4.3.4.9 0 1.3l-.7.7c-.7.7-1.8.8-2.7.3-2.3-1.2-4.1-3-5.3-5.3-.5-.9-.4-2 .3-2.7z" fill="#fff"/></svg><span data-i18n="c.phone">Обади се<small>+359 896 868 198</small></span></a></li>
+        <li><a href="https://www.instagram.com/vladiator_a.i/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".35" stop-color="#FA7E1E"/><stop offset=".6" stop-color="#D62976"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#igg)"/><rect x="5.5" y="5.5" width="13" height="13" rx="4" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="16.1" cy="7.9" r="1" fill="#fff"/></svg><span>Instagram<small>@vladiator_a.i</small></span></a></li>
         <li><a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7 10h2.4v7H7zm1.2-3.6a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8zM11 10h2.3v1c.4-.7 1.2-1.2 2.4-1.2 2.2 0 2.6 1.4 2.6 3.3V17h-2.4v-3.4c0-.9 0-1.9-1.2-1.9s-1.4.9-1.4 1.9V17H11z" fill="#fff"/></svg><span>LinkedIn<small data-i18n="c.li">Влади Николов</small></span></a></li>
         <li><a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#14A800"/><path d="M15.6 8.4c-1.6 0-2.8 1-3.3 2.6-.6-.9-1-1.9-1.3-2.8H9.6v3.6c0 .9-.7 1.6-1.6 1.6s-1.6-.7-1.6-1.6V8.2H5v3.6a3 3 0 006 0v-.6c.3.6.7 1.2 1.1 1.7l-1 4.7h1.5l.7-3.4c.6.4 1.4.6 2.3.6a3.2 3.2 0 000-6.4zm0 4.9c-.7 0-1.4-.3-2-.8l.2-.8c.2-.9.7-1.9 1.8-1.9a1.75 1.75 0 010 3.5z" fill="#fff"/></svg><span>Upwork<small data-i18n="c.up">Профил и отзиви</small></span></a></li>
       </ul>
@@ -584,7 +592,7 @@ footer a{color:var(--white)}
   <div class="wordmark" aria-hidden="true">VLADIATOR</div>
   <div class="wrap">
     <span>© 2026 Vladiator Digital · Владимир Николов · София</span>
-    <span><a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a></span>
+    <span class="social"><a href="https://www.instagram.com/vladiator_a.i/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener">Upwork</a><a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a></span>
   </div>
 </footer>
 
