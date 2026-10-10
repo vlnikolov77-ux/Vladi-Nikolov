@@ -70,7 +70,7 @@ section{padding:110px 0}
 .nav{position:fixed;inset:0 0 auto 0;z-index:30;transition:background .3s,box-shadow .3s}
 .nav.solid{background:rgba(13,26,43,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white);font-family:var(--display);font-size:18px;letter-spacing:.01em}
+.brand{display:flex;align-items:center;gap:12px;white-space:nowrap;text-decoration:none;color:var(--white);font-family:var(--display);font-size:18px;letter-spacing:.01em}
 .brand svg{width:36px;height:36px}
 .nav-links{display:flex;gap:30px;list-style:none}
 .nav-links a{text-decoration:none;color:#C9D7E6;font-weight:500;font-size:16px;transition:color .2s}
@@ -289,6 +289,9 @@ footer .social a:hover{color:var(--sky)}
   section{padding:76px 0}
   .wrap{padding:0 18px}
   .nav .btn{display:none}
+  .brand{font-size:15px;gap:9px;white-space:nowrap}
+  .brand svg{width:32px;height:32px}
+  .nav-ig{width:36px;height:36px}
   .hero{padding:118px 0 80px}
     .proof{gap:24px}
   .proof b{font-size:28px}
