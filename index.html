@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vladiator Digital — AI маркетинг студио в София</title>
-<meta name="description" content="Видео, социални мрежи, сайт и Google бизнес профил за малки и средни бизнеси. AI маркетинг студио на Влади Николов, София.">
-<meta property="og:title" content="Vladiator Digital — AI маркетинг студио">
-<meta property="og:description" content="Видео. Мрежи. Сайт. Google. Всичко, за да те намират и да ти купуват онлайн.">
+<title>Vladiator Digital — дигитална агенция за маркетинг в София</title>
+<meta name="description" content="Дигитална агенция за маркетинг в София: видео реклами, социални мрежи, сайтове и Google бизнес профил за малки и средни бизнеси.">
+<meta property="og:title" content="Vladiator Digital — дигитална агенция за маркетинг">
+<meta property="og:description" content="Маркетинг, който носи клиенти. Видео, социални мрежи, сайт и Google с ясни цени.">
 <meta property="og:image" content="assets/vladi.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0D1A2B">
@@ -89,11 +89,14 @@ section{padding:110px 0}
 .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--sky);font-weight:500;margin-bottom:28px;padding:8px 16px 8px 12px;border:1px solid rgba(168,212,255,.3);border-radius:999px;font-size:15px}
 .kicker .live{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(255,59,78,.6);animation:ping 2s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,59,78,.6)}80%,100%{box-shadow:0 0 0 12px rgba(255,59,78,0)}}
-.stack{font-family:var(--display);font-size:clamp(52px,8.2vw,112px);line-height:.98;letter-spacing:-0.015em;margin-bottom:30px;list-style:none}
-.stack li{display:block;color:rgba(232,240,248,.22);transition:color .5s,transform .5s;transform-origin:left center}
-.stack li.on{color:var(--white);transform:translateX(10px)}
-.stack li .tag{display:inline-block;vertical-align:middle;margin-left:14px;font:500 14px/1 var(--body);letter-spacing:0;color:var(--night);background:var(--sky);padding:7px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
-.stack li.on .tag{opacity:1;transform:none}
+.title{font-family:var(--display);font-size:clamp(46px,6.6vw,94px);line-height:1;letter-spacing:-0.015em;margin-bottom:34px;max-width:11ch}
+.swipe{position:relative;white-space:nowrap}
+.swipe::after{content:"";position:absolute;left:0;right:.25em;bottom:.02em;height:.075em;border-radius:.04em;background:var(--signal);transform:scaleX(0);transform-origin:left;animation:swipe .9s .9s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes swipe{to{transform:scaleX(1)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chips button{font:500 15px/1 var(--body);color:#C9D7E6;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:11px 16px;cursor:pointer;transition:background .35s,color .35s,border-color .35s}
+.chips button:hover{border-color:var(--sky);color:var(--white)}
+.chips button.on{background:var(--sky);border-color:var(--sky);color:var(--night)}
 .hero .lead{color:#B9C8DA;margin-bottom:34px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px}
 .proof{display:grid;grid-template-columns:repeat(4,auto);gap:36px;justify-content:start}
@@ -116,52 +119,23 @@ section{padding:110px 0}
 .bars i.done b{width:100%}
 .bars i.run b{animation:fill var(--dur,3s) linear forwards}
 @keyframes fill{to{width:100%}}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
-.slide.on{opacity:1}
-.slide-1 img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transform:scale(1.12);transition:transform 4s ease-out}
-.slide-1.on img{transform:scale(1)}
-.cap{position:absolute;left:14px;right:14px;bottom:16px;background:rgba(13,26,43,.78);backdrop-filter:blur(6px);border-radius:18px;padding:14px 16px;color:var(--white)}
-.cap b{display:block;font-weight:700;font-size:16px;line-height:1.25}
-.cap span{display:block;font-size:13px;color:#C9D7E6;margin-top:3px}
-.slide-2{background:radial-gradient(120% 80% at 50% 0%,#3A5F92,var(--night))}
-.big-stat{position:absolute;top:22%;left:0;right:0;text-align:center}
-.big-stat b{font-family:var(--display);font-size:84px;line-height:1;color:var(--white);display:block}
-.big-stat span{color:var(--sky);font-weight:500;font-size:15px}
-.grid9{position:absolute;left:22px;right:22px;top:47%;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.grid9 i{aspect-ratio:9/14;border-radius:8px;background:linear-gradient(160deg,rgba(168,212,255,.55),rgba(168,212,255,.12))}
-.grid9 i:nth-child(2n){background:linear-gradient(160deg,rgba(255,59,78,.6),rgba(255,59,78,.15))}
-.slide-3{background:var(--paper);color:var(--ink);padding:52px 18px 18px}
-.menu-h{font-family:var(--display);font-size:22px;margin-bottom:4px}
-.menu-s{font-size:12px;color:var(--slate);margin-bottom:14px}
-.menu-tabs{display:flex;gap:6px;margin-bottom:14px}
-.menu-tabs i{font-style:normal;font-size:11px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--white);border:1px solid var(--line)}
-.menu-tabs i:first-child{background:var(--night);color:var(--white);border-color:var(--night)}
-.menu-row{display:flex;gap:10px;align-items:center;background:var(--white);border-radius:14px;padding:9px;margin-bottom:8px}
-.menu-row i{width:42px;height:42px;border-radius:10px;flex:none}
-.menu-row b{display:block;font-size:13px}
-.menu-row span{font-size:11px;color:var(--slate)}
-.qr{position:absolute;left:18px;bottom:18px;width:62px;height:62px;border-radius:10px;background:
-  conic-gradient(from 90deg at 30% 30%,var(--night) 25%,transparent 0) 0 0/14px 14px,var(--white);border:4px solid var(--white);box-shadow:0 6px 16px -6px rgba(13,26,43,.4)}
-.slide-4{background:#E7EEF5}
-.map{position:absolute;inset:0;background:
-  linear-gradient(90deg,transparent 47%,#FFFFFF 47%,#FFFFFF 53%,transparent 53%) 0 0/120px 100%,
-  linear-gradient(0deg,transparent 46%,#FFFFFF 46%,#FFFFFF 52%,transparent 52%) 0 0/100% 150px,
-  linear-gradient(35deg,transparent 48%,#F6E7C8 48%,#F6E7C8 54%,transparent 54%),
-  #E3ECE4}
-.pin{position:absolute;left:50%;top:34%;width:46px;height:46px;margin-left:-23px;border-radius:50% 50% 50% 0;background:var(--signal);transform:rotate(-45deg);box-shadow:0 10px 20px -6px rgba(255,59,78,.7);animation:drop 1.4s cubic-bezier(.3,1.6,.5,1) both}
-.pin::after{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--white)}
-.slide-4.on .pin{animation-name:drop}
-@keyframes drop{0%{transform:translateY(-60px) rotate(-45deg);opacity:0}100%{transform:rotate(-45deg);opacity:1}}
-.gcard{position:absolute;left:14px;right:14px;bottom:16px;background:var(--white);border-radius:18px;padding:16px;color:var(--ink);box-shadow:0 10px 30px -10px rgba(13,26,43,.35)}
-.gcard b{display:block;font-size:16px}
-.gcard span{display:block;font-size:13px;color:#188038;margin:2px 0 12px}
-.gcard div{display:flex;gap:8px}
-.gcard i{font-style:normal;font-size:12px;font-weight:700;padding:8px 12px;border-radius:999px;background:#E8F0FE;color:#1A56C4}
+.shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform 3.2s cubic-bezier(.3,.1,.3,1),filter .8s}
+.screen[data-i="0"] .shot{transform:scale(1.05)}
+.screen[data-i="1"] .shot{transform:scale(1.28) translate(-4%,4%)}
+.screen[data-i="2"] .shot{transform:scale(1.16) translate(5%,-2%)}
+.screen[data-i="3"] .shot{transform:scale(1.36) translate(0,7%)}
+.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,26,43,.45),transparent 22%,transparent 48%,rgba(13,26,43,.92));pointer-events:none}
+.story-head{position:absolute;top:28px;left:14px;display:flex;align-items:center;gap:8px;z-index:5;color:var(--white);font-size:13px}
+.story-head svg{width:28px;height:28px;border:2px solid var(--signal);border-radius:50%}
+.caps{position:absolute;left:18px;right:18px;bottom:22px;height:96px;z-index:5}
+.cap{position:absolute;left:0;right:0;bottom:0;color:var(--white);opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.cap.on{opacity:1;transform:none}
+.cap b{display:block;font-family:var(--display);font-size:26px;line-height:1.05;margin-bottom:8px}
+.cap span{display:inline-block;font-size:14px;font-weight:500;color:var(--night);background:var(--sky);padding:6px 11px;border-radius:999px}
 .float{position:absolute;background:var(--white);color:var(--ink);border-radius:18px;padding:14px 16px;box-shadow:0 18px 40px -16px rgba(0,0,0,.55);font-size:14px;line-height:1.35;animation:bob 5s ease-in-out infinite}
 .float b{display:block;font-family:var(--display);font-size:26px;line-height:1.05;color:var(--signal)}
 .f1{left:-74px;top:24%;max-width:176px}
-.f2{right:-34px;bottom:-26px;animation-delay:-2.5s;display:flex;align-items:center;gap:10px}
-.f2 b{font-size:20px;color:var(--ink)}
+.f2{left:-96px;top:56%;max-width:170px;animation-delay:-2.5s}
 @keyframes bob{50%{transform:translateY(-10px)}}
 
 /* ---------- marquee ---------- */
@@ -294,7 +268,7 @@ footer a{color:var(--white)}
   .nav-links{display:none}
   .hero .wrap,.about .wrap,.contact .wrap,.svc-head,.faq-wrap{grid-template-columns:1fr}
   .stage{margin-top:28px}
-  .f2{right:-12px}
+  .f2{left:-16px;top:auto;bottom:18%}
   .proof{grid-template-columns:repeat(2,auto)}
   .reels{grid-template-columns:repeat(2,1fr)}
   .reel:nth-child(even){transform:translateY(32px)}
@@ -310,8 +284,7 @@ footer a{color:var(--white)}
   .wrap{padding:0 18px}
   .nav .btn{display:none}
   .hero{padding:118px 0 80px}
-  .stack li .tag{display:none}
-  .proof{gap:24px}
+    .proof{gap:24px}
   .proof b{font-size:28px}
   .reels{gap:14px}
   .reel p{font-size:14px}
@@ -320,7 +293,7 @@ footer a{color:var(--white)}
   .svc-row::after{left:16px;right:16px}
   .quote{padding:28px}
   form{padding:24px}
-  .f2{right:-6px}
+  .f2{left:-6px;max-width:150px}
   .photo::before{inset:16px -12px -16px 16px}
   .photo .float{right:-6px}
 }
@@ -360,18 +333,16 @@ footer a{color:var(--white)}
 <header class="hero">
   <div class="wrap">
     <div>
-      <p class="kicker intro d1"><span class="live" aria-hidden="true"></span><span data-i18n="hero.kicker">AI маркетинг студио в София</span></p>
-      <h1>
-        <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" data-i18n="hero.h1">Видео, социални мрежи, сайт и Google за твоя бизнес</span>
-        <ul class="stack" id="stack" aria-hidden="true">
-          <li class="intro d2 on" data-i18n="hero.l1">Видео.</li>
-          <li class="intro d3" data-i18n="hero.l2">Мрежи.</li>
-          <li class="intro d4" data-i18n="hero.l3">Сайт.</li>
-          <li class="intro d5" data-i18n="hero.l4">Google.</li>
-        </ul>
-      </h1>
-      <p class="lead intro d5" data-i18n="hero.lead">Всичко, от което бизнесът ти има нужда, за да го намират и да му купуват онлайн. С AI го правим за дни, а стратегията остава човешка.</p>
-      <div class="hero-ctas intro d6">
+      <p class="kicker intro d1"><span class="live" aria-hidden="true"></span><span data-i18n="hero.kicker">Дигитална агенция за маркетинг · София</span></p>
+      <h1 class="title intro d2" data-i18n="hero.title">Маркетинг, който носи <span class="swipe">клиенти.</span></h1>
+      <div class="chips intro d3" id="chips" role="tablist" aria-label="Услуги">
+        <button type="button" class="on" data-i18n="chip1">Видео реклами</button>
+        <button type="button" data-i18n="chip2">Социални мрежи</button>
+        <button type="button" data-i18n="chip3">Сайтове и лендинги</button>
+        <button type="button" data-i18n="chip4">Google бизнес профил</button>
+      </div>
+      <p class="lead intro d4" data-i18n="hero.lead">Помагаме на малки и средни бизнеси да ги намират и да им купуват онлайн. Една агенция за видео, социални мрежи, сайт и Google, с ясни цени и резултати, които се измерват.</p>
+      <div class="hero-ctas intro d5">
         <a class="btn btn-primary" href="#contact" data-i18n="cta.callLong">Запиши безплатен разговор</a>
         <a class="btn btn-line" href="#services" data-i18n="cta.prices">Виж услугите и цените</a>
       </div>
@@ -383,48 +354,30 @@ footer a{color:var(--white)}
       </div>
     </div>
 
-    <div class="stage intro d4" aria-label="Примери за услугите на телефон">
+    <div class="stage intro d3">
       <div class="phone">
-        <div class="screen">
+        <div class="screen" id="screen" data-i="0">
+          <!-- Showreel: замени <img> с <video src="assets/showreel.mp4" autoplay muted loop playsinline></video> -->
+          <img class="shot" src="assets/vladi.jpg" alt="Влади Николов, основател на Vladiator Digital" width="900" height="900">
           <div class="bars" id="bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
-
-          <div class="slide slide-1 on">
-            <img src="assets/vladi.jpg" alt="Влади Николов, основател на Vladiator Digital" width="900" height="900">
-            <div class="cap"><b data-i18n="ph1.b">Кратки видеа и AI реклами</b><span data-i18n="ph1.s">За Instagram, TikTok и Facebook · от&nbsp;60&nbsp;€</span></div>
-          </div>
-
-          <div class="slide slide-2">
-            <div class="big-stat"><b>955K</b><span data-i18n="ph2.stat">гледания от една кампания</span></div>
-            <div class="grid9" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="cap"><b data-i18n="ph2.b">Социални мрежи</b><span data-i18n="ph2.s">План, съдържание и отчет · от&nbsp;390&nbsp;€ на месец</span></div>
-          </div>
-
-          <div class="slide slide-3">
-            <div class="menu-h" data-i18n="ph3.h">Дигитално меню</div>
-            <div class="menu-s" data-i18n="ph3.s">Отваря се от QR код за секунда</div>
-            <div class="menu-tabs" aria-hidden="true"><i data-i18n="ph3.t1">Фрешове</i><i data-i18n="ph3.t2">Смутита</i><i data-i18n="ph3.t3">Боули</i></div>
-            <div class="menu-row"><i style="background:linear-gradient(135deg,#FFB547,#FF7A2F)"></i><div><b data-i18n="ph3.r1">Портокал и морков</b><span data-i18n="ph3.r1s">Студено пресован</span></div></div>
-            <div class="menu-row"><i style="background:linear-gradient(135deg,#8FD16A,#2E9E5B)"></i><div><b data-i18n="ph3.r2">Зелено смути</b><span data-i18n="ph3.r2s">Спанак, ябълка, джинджифил</span></div></div>
-            <div class="menu-row"><i style="background:linear-gradient(135deg,#FF8DB0,#C2185B)"></i><div><b data-i18n="ph3.r3">Горски плодове</b><span data-i18n="ph3.r3s">С йогурт и мед</span></div></div>
-            <div class="qr" aria-hidden="true"></div>
-          </div>
-
-          <div class="slide slide-4">
-            <div class="map" aria-hidden="true"></div>
-            <div class="pin" aria-hidden="true"></div>
-            <div class="gcard"><b data-i18n="ph4.b">Твоят бизнес в Google Maps</b><span data-i18n="ph4.s">Отворено сега</span><div><i data-i18n="ph4.c1">Обади се</i><i data-i18n="ph4.c2">Маршрут</i><i data-i18n="ph4.c3">Сайт</i></div></div>
+          <div class="story-head"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#0D1A2B"/><path d="M14 16h10l8 22 8-22h10L37 50H27z" fill="#A8D4FF"/></svg><b>Vladiator Digital</b></div>
+          <div class="caps" aria-live="polite">
+            <div class="cap on"><b data-i18n="ph1.b">Видео реклами</b><span data-i18n="ph1.s">Готови до 5 дни · от&nbsp;60&nbsp;€</span></div>
+            <div class="cap"><b data-i18n="ph2.b">Социални мрежи</b><span data-i18n="ph2.s">955K гледания от една кампания</span></div>
+            <div class="cap"><b data-i18n="ph3.b">Сайтове и лендинги</b><span data-i18n="ph3.s">Бързи на телефон, водят до запитване</span></div>
+            <div class="cap"><b data-i18n="ph4.b">Google бизнес профил</b><span data-i18n="ph4.s">Да те намират в Google Maps</span></div>
           </div>
         </div>
       </div>
-            <div class="float f2"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#FF3B4E"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="hero.fast">Видео за 5 дни</span></div>
+      <div class="float f2"><b>+8&nbsp;019%</b><span data-i18n="hero.note">повече гледания от обичайното</span></div>
     </div>
   </div>
 </header>
 
 <div class="band-clip" aria-hidden="true"><div class="band">
   <div class="band-track">
-    <span data-i18n="band">Кратки видеа</span><span data-i18n="band2">Социални мрежи</span><span data-i18n="band3">Google бизнес профил</span><span data-i18n="band4">Сайтове и менюта</span><span data-i18n="band5">AI кампании</span><span data-i18n="band6">AI обучения</span>
-    <span data-i18n="band">Кратки видеа</span><span data-i18n="band2">Социални мрежи</span><span data-i18n="band3">Google бизнес профил</span><span data-i18n="band4">Сайтове и менюта</span><span data-i18n="band5">AI кампании</span><span data-i18n="band6">AI обучения</span>
+    <span data-i18n="band">Кратки видеа</span><span data-i18n="band2">Социални мрежи</span><span data-i18n="band3">Google бизнес профил</span><span data-i18n="band4">Сайтове и менюта</span><span data-i18n="band5">Рекламни кампании</span><span data-i18n="band6">AI обучения</span>
+    <span data-i18n="band">Кратки видеа</span><span data-i18n="band2">Социални мрежи</span><span data-i18n="band3">Google бизнес профил</span><span data-i18n="band4">Сайтове и менюта</span><span data-i18n="band5">Рекламни кампании</span><span data-i18n="band6">AI обучения</span>
   </div>
 </div></div>
 
@@ -448,7 +401,7 @@ footer a{color:var(--white)}
         <div class="price"><b data-i18n="s1.price">60&nbsp;€</b><small data-i18n="s1.small">за видео · пакет от 4 за 240&nbsp;€</small></div>
       </div>
       <div class="svc-row rv">
-        <div><h3 data-i18n="s2.name">Социални мрежи</h3><p data-i18n="s2.desc">Поемам профилите ти изцяло: план, съдържание, публикуване, отчет.</p></div>
+        <div><h3 data-i18n="s2.name">Социални мрежи</h3><p data-i18n="s2.desc">Поемаме профилите ти изцяло: план, съдържание, публикуване, отчет.</p></div>
         <ul data-i18n="s2.list"><li>Старт: 2 платформи, 10 публикации, 4 видеа</li><li>Растеж: до 3 платформи, 16 публикации, 8 видеа, настройка на реклама</li><li>Месечен отчет с резултати</li></ul>
         <div class="price"><b data-i18n="s2.price">от 390&nbsp;€</b><small data-i18n="s2.small">на месец · Растеж 690&nbsp;€</small></div>
       </div>
@@ -583,7 +536,7 @@ footer a{color:var(--white)}
     <h2 class="rv" data-i18n="faq.title">Често задавани въпроси</h2>
     <div class="faq rv">
       <details><summary data-i18n="faq1.q">Колко бързо ще получа първото видео?</summary><p data-i18n="faq1.a">Обикновено до 5 работни дни от одобрения сценарий. При пакет от 4 видеа ги получаваш едновременно.</p></details>
-      <details><summary data-i18n="faq2.q">Трябва ли да снимам нещо?</summary><p data-i18n="faq2.a">Не задължително. С AI мога да направя видео само по снимки на продукта или по описание. Ако имаш собствени кадри, ги използваме.</p></details>
+      <details><summary data-i18n="faq2.q">Трябва ли да снимам нещо?</summary><p data-i18n="faq2.a">Не задължително. С AI можем да направим видео само по снимки на продукта или по описание. Ако имаш собствени кадри, ги използваме.</p></details>
       <details><summary data-i18n="faq3.q">Чии са правата върху видеата?</summary><p data-i18n="faq3.a">Твои. След плащането можеш да ги ползваш навсякъде, включително в платени реклами.</p></details>
       <details><summary data-i18n="faq4.q">Ами ако не ми хареса?</summary><p data-i18n="faq4.a">Корекциите са включени в цената. Преди продукцията одобряваш сценария, така че изненади няма.</p></details>
       <details><summary data-i18n="faq5.q">Работиш ли с бизнеси извън София?</summary><p data-i18n="faq5.a">Да. Повечето работа минава онлайн, а Google профилът и видеата не зависят от града.</p></details>
@@ -645,24 +598,25 @@ function onScroll(){nav.classList.toggle('solid',window.scrollY>30);}
 onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
 /* hero: headline lines + phone slides + story bars move together */
-var lines=[].slice.call(document.querySelectorAll('#stack li'));
-var slides=[].slice.call(document.querySelectorAll('.slide'));
+var chips=[].slice.call(document.querySelectorAll('#chips button'));
+var caps=[].slice.call(document.querySelectorAll('.cap'));
 var bars=[].slice.call(document.querySelectorAll('#bars i'));
-var i=0,DUR=3200,timer;
+var screen=document.getElementById('screen');
+var i=0,DUR=3400,timer;
 function show(n){
-  i=n;
-  lines.forEach(function(l,k){l.classList.toggle('on',k===n);});
-  slides.forEach(function(s,k){s.classList.toggle('on',k===n);});
+  i=n;screen.setAttribute('data-i',n);
+  chips.forEach(function(c,k){c.classList.toggle('on',k===n);c.setAttribute('aria-selected',String(k===n));});
+  caps.forEach(function(c,k){c.classList.toggle('on',k===n);});
   bars.forEach(function(b,k){
     b.classList.remove('run','done');
     if(k<n)b.classList.add('done');
     if(k===n){void b.offsetWidth;b.style.setProperty('--dur',DUR+'ms');b.classList.add('run');}
   });
 }
-function next(){show((i+1)%slides.length);}
+function next(){show((i+1)%caps.length);}
 if(!reduce){show(0);timer=setInterval(next,DUR);}
 else{bars.forEach(function(b,k){if(k===0)b.classList.add('done');});}
-lines.forEach(function(l,k){l.style.cursor='pointer';l.addEventListener('click',function(){clearInterval(timer);show(k);if(!reduce)timer=setInterval(next,DUR);});});
+chips.forEach(function(c,k){c.addEventListener('click',function(){clearInterval(timer);show(k);if(!reduce)timer=setInterval(next,DUR);});});
 
 /* reveal on scroll + count-up */
 function countUp(el){
@@ -691,23 +645,20 @@ document.querySelectorAll('.reel-frame[data-video]').forEach(function(f){
 var EN={
  "nav.services":"Services & prices","nav.work":"Work","nav.process":"Process","nav.about":"About",
  "cta.call":"Free call","cta.callLong":"Book a free call","cta.prices":"See services and prices",
- "hero.kicker":"AI marketing studio in Sofia","hero.h1":"Video, social media, website and Google for your business",
- "hero.l1":"Video.","hero.l2":"Social.","hero.l3":"Web.","hero.l4":"Google.",
- "hero.lead":"Everything your business needs to get found and to sell online. AI lets us do it in days, while the strategy stays human.",
+ "hero.kicker":"Digital marketing agency · Sofia","hero.title":"Marketing that brings <span class=\"swipe\">customers.</span>",
+ "chip1":"Video ads","chip2":"Social media","chip3":"Websites and landing pages","chip4":"Google Business Profile",
+ "hero.lead":"We help small and mid-sized businesses get found and sell online. One agency for video, social media, website and Google, with clear prices and results you can measure.",
  "proof.views":"views from one campaign","proof.eng":"engagements","proof.open":"email open rate vs 27% average","proof.cities":"cities in one national campaign",
- "ph1.b":"Short videos and AI ads","ph1.s":"For Instagram, TikTok and Facebook · from&nbsp;€60",
- "ph2.stat":"views from one campaign","ph2.b":"Social media","ph2.s":"Plan, content and reporting · from €390 a month",
- "ph3.h":"Digital menu","ph3.s":"Opens from a QR code in a second","ph3.t1":"Juices","ph3.t2":"Smoothies","ph3.t3":"Bowls",
- "ph3.r1":"Orange and carrot","ph3.r1s":"Cold pressed","ph3.r2":"Green smoothie","ph3.r2s":"Spinach, apple, ginger","ph3.r3":"Forest berries","ph3.r3s":"With yogurt and honey",
- "ph4.b":"Your business on Google Maps","ph4.s":"Open now","ph4.c1":"Call","ph4.c2":"Directions","ph4.c3":"Website",
- "hero.note":"more views than the usual baseline","hero.fast":"Video in 5 days",
- "band":"Short videos","band2":"Social media","band3":"Google Business Profile","band4":"Websites and menus","band5":"AI campaigns","band6":"AI training",
+ "ph1.b":"Video ads","ph1.s":"Ready in 5 days · from&nbsp;€60","ph2.b":"Social media","ph2.s":"955K views from one campaign",
+ "ph3.b":"Websites and landing pages","ph3.s":"Fast on a phone, built for enquiries","ph4.b":"Google Business Profile","ph4.s":"Get found on Google Maps",
+ "hero.note":"more views than usual",
+ "band":"Short videos","band2":"Social media","band3":"Google Business Profile","band4":"Websites and menus","band5":"Ad campaigns","band6":"AI training",
  "clients.label":"I have worked with",
  "svc.title":"Services and prices","svc.lead":"Prices are clear from the start. You get an exact quote after a short free call where we pin down what you need.",
  "s1.name":"Short videos and AI ads","s1.desc":"Vertical videos up to 60 seconds for Instagram, TikTok, Facebook and YouTube Shorts.",
  "s1.list":"<li>Idea and script with a hook in the first 2 seconds</li><li>AI visuals, captions and music</li><li>1–2 revisions per video</li>",
  "s1.price":"€60","s1.small":"per video · pack of 4 for €240",
- "s2.name":"Social media","s2.desc":"I take over your profiles: plan, content, publishing, report.",
+ "s2.name":"Social media","s2.desc":"We take over your profiles: plan, content, publishing, report.",
  "s2.list":"<li>Start: 2 platforms, 10 posts, 4 videos</li><li>Growth: up to 3 platforms, 16 posts, 8 videos, ad setup</li><li>Monthly results report</li>",
  "s2.price":"from €390","s2.small":"per month · Growth €690",
  "s3.name":"Google Business Profile","s3.desc":"Get found on Google Maps when people search “near me”.",
@@ -742,7 +693,7 @@ var EN={
  "q2":"“The attention to detail and creativity exceeded our expectations. We got exactly what we needed.”","q2.role":"Sports centre, Sofia",
  "faq.title":"Frequently asked questions",
  "faq1.q":"How fast will I get the first video?","faq1.a":"Usually within 5 working days of the approved script. With a 4-video pack you get them together.",
- "faq2.q":"Do I need to film anything?","faq2.a":"Not necessarily. With AI I can make a video from product photos or a description. If you have your own footage, we use it.",
+ "faq2.q":"Do I need to film anything?","faq2.a":"Not necessarily. With AI we can make a video from product photos or a description. If you have your own footage, we use it.",
  "faq3.q":"Who owns the videos?","faq3.a":"You do. After payment you can use them anywhere, including paid ads.",
  "faq4.q":"What if I don’t like it?","faq4.a":"Revisions are included. You approve the script before production, so there are no surprises.",
  "faq5.q":"Do you work with businesses outside Sofia?","faq5.a":"Yes. Most work happens online, and Google profiles and videos don’t depend on your city.",
