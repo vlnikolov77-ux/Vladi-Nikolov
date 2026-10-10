@@ -190,7 +190,8 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 /* ---------- work ---------- */
 .work{background:var(--night);color:var(--white);position:relative;overflow:hidden}
 .work .lead{color:#B9C8DA}
-.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
+.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px}
+.reel p{font-size:14.5px}
 .reel:nth-child(even){transform:translateY(48px)}
 .reel-frame{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:var(--night-2);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:transform .4s}
 .reel:hover .reel-frame{transform:translateY(-6px) rotate(-1deg)}
@@ -472,6 +473,14 @@ footer .social a:hover{color:var(--sky)}
     </div>
     <div class="reels">
       <article class="reel rv">
+        <div class="reel-frame" data-video="assets/work-teatar.mp4" data-poster="assets/work-teatar.jpg">
+          <div class="reel-empty" style="--a:#2B6CB0;--b:#0B1E3A"></div><span class="play" aria-hidden="true"></span>
+          <div class="reel-label"><b data-i18n="w6.name">Палавото носле</b><span data-i18n="work.t">Трейлър и мултимедия</span></div>
+        </div>
+        <p data-i18n="w6.desc">Детски спектакъл на „Камбана Арт“ по Милена Маат: трейлърът и AI мултимедията за сцената. Игран в НБУ, Театър „Хенд“ и „Топлоцентрала“.</p>
+        <p class="result" data-i18n="w6.res">С подкрепата на Национален фонд „Култура“</p>
+      </article>
+      <article class="reel rv">
         <div class="reel-frame" data-video="assets/work-kapki-bah.mp4" data-poster="assets/work-kapki-bah.jpg">
           <div class="reel-empty" style="--a:#3E6AA8;--b:#132540"></div><span class="play" aria-hidden="true"></span>
           <div class="reel-label"><b>kapki-bah.com</b><span data-i18n="work.k">AI продуктово видео</span></div>
@@ -716,7 +725,7 @@ var EN={
  "s6.price":"<span class=\"cur\">€</span>250","s6.small":"for 2 hours",
  "svc.note":"Payment: 50% upfront, 50% on delivery. Monthly plans have a 3-month minimum. Social media plus Google profile upkeep together: 10% off.",
  "man.p":"“People don’t buy AI. They buy more customers.”","man.s":"That is why every video, post and page starts with one question: what will it bring your business?",
- "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices, photos and a QR code on every table.","w5.res":"The whole menu on your phone, from a QR code",
+ "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices, photos and a QR code on every table.","w5.res":"The whole menu on your phone, from a QR code",
  "w1.desc":"Full campaign for an online shop: AI video, talking avatar, giveaway, emails and Viber messages.","w1.res":"Video, email and Viber, delivered solo",
  "w2.desc":"Fresh bar in Sofia: product videos for social media, branded QR code and Google profile.","w2.res":"Video, QR code and Google profile",
  "w3.desc":"National charity event: campaign, partners and instructor coordination.","w3.res":"15 cities, around 1,000 participants",
