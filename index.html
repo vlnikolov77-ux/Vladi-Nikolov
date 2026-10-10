@@ -239,20 +239,16 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 
 /* ---------- reviews ---------- */
 .rev-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
-.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
-.quote{border-radius:28px;padding:32px;background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:22px;transition:transform .3s,box-shadow .3s}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.quote{border-radius:22px;padding:24px;background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:22px;transition:transform .3s,box-shadow .3s}
 .quote:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(13,26,43,.45)}
-.quote-main{grid-column:1/-1;background:var(--night);border-color:var(--night);color:var(--white);padding:44px 48px;position:relative;overflow:hidden}
-.quote-main::before{content:"\201E";position:absolute;right:36px;top:-40px;font-family:var(--serif);font-style:italic;font-size:240px;line-height:1;color:var(--signal);opacity:.9}
-.quote p{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.45}
-.quote-main p{font-size:clamp(21px,2.1vw,27px);max-width:52ch;position:relative}
+.quote p{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5}
 .quote figcaption{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
 .quote cite{font-style:normal;font-weight:700}
-.quote cite span{display:block;font-weight:400;color:var(--slate);font-size:14.5px;max-width:34ch}
-.quote-main cite span{color:var(--mist);max-width:none}
-.verified{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;text-decoration:none;color:#0E7A00;background:#E9F7E6;padding:7px 11px 7px 8px;border-radius:999px;white-space:nowrap}
+.quote cite{font-size:15px}
+.quote cite span{display:block;font-weight:400;color:var(--slate);font-size:13.5px}
+.verified{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-decoration:none;color:#0E7A00;background:#E9F7E6;padding:7px 11px 7px 8px;border-radius:999px;white-space:nowrap}
 .verified svg{width:18px;height:18px}
-.quote-main .verified{background:rgba(20,168,0,.16);color:#7FE36E}
 .rev-note{margin-top:18px;font-size:14px;color:var(--slate)}
 
 /* ---------- faq ---------- */
@@ -310,8 +306,7 @@ footer .social a:hover{color:var(--sky)}
   .price b{justify-content:flex-start;transform-origin:left center}
   .ask{opacity:1;transform:none;max-height:60px;margin-top:14px;padding-top:10px!important;padding-bottom:10px!important}
   .quotes,.rev-head{grid-template-columns:1fr}
-  .quote-main::before{display:none}
-  .photo{max-width:440px}
+    .photo{max-width:440px}
 }
 @media (max-width:600px){
   body{font-size:16px}
@@ -331,8 +326,7 @@ footer .social a:hover{color:var(--sky)}
   .steps,.facts,.certs{grid-template-columns:1fr}
   .svc-row{padding:28px 16px;margin:0 -16px}
   .svc-row::after{left:16px;right:16px}
-  .quote,.quote-main{padding:26px}
-  form{padding:24px}
+  .quote,  form{padding:24px}
   .f2{left:-6px;max-width:150px}
   .photo::before{inset:16px -12px -16px 16px}
   .photo .float{right:-6px}
@@ -435,7 +429,7 @@ footer .social a:hover{color:var(--sky)}
     </div>
     <div class="svc">
       <div class="svc-row rv">
-        <div><h3 data-i18n="s1.name">Кратки видеа и AI реклами</h3><p data-i18n="s1.desc">Вертикални видеа до 60 секунди за Instagram, TikTok, Facebook и YouTube Shorts.</p></div>
+        <div><h3 data-i18n="s1.name">Кратки видеа и AI реклами</h3><p data-i18n="s1.desc">Вертикални видеа до 30 секунди за Instagram, TikTok, Facebook и YouTube Shorts.</p></div>
         <ul data-i18n="s1.list"><li>Идея и сценарий с кука в първите 2 секунди</li><li>AI визуализация, надписи и музика</li><li>1–2 корекции на всяко видео</li></ul>
         <div class="price"><b data-i18n="s1.price">60<span class="cur">€</span></b><small data-i18n="s1.small">за видео · пакет от 4 за 240&nbsp;€</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
@@ -446,7 +440,7 @@ footer .social a:hover{color:var(--sky)}
       </div>
       <div class="svc-row rv">
         <div><h3 data-i18n="s3.name">Google бизнес профил</h3><p data-i18n="s3.desc">Клиентите от района те откриват в Google Maps, когато търсят услугата ти.</p></div>
-        <ul data-i18n="s3.list"><li>Настройка: категории, услуги, снимки, описание</li><li>Стратегия за повече ревюта</li><li>Поддръжка: публикации и отговори на ревюта</li></ul>
+        <ul data-i18n="s3.list"><li>Настройка: категории, услуги, снимки, описание</li><li>Стратегия за повече ревюта</li><li>Поддръжка: публикации и отговори на ревюта</li><li>Табела с QR код за ревюта</li></ul>
         <div class="price"><b data-i18n="s3.price">180<span class="cur">€</span></b><small data-i18n="s3.small">настройка · поддръжка 90&nbsp;€ на месец</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
@@ -578,8 +572,8 @@ footer .social a:hover{color:var(--sky)}
       <p class="lead" data-i18n="rev.lead">Отзиви от реални проекти: банково дело, държавна администрация и маркетингови кампании.</p>
     </div>
     <div class="quotes">
-      <figure class="quote quote-main rv">
-        <blockquote><p data-i18n="q3">„Впечатли ме колко бързо Влади разбра тънкостите на нашите финансови продукти и ги превърна в ясни и ангажиращи маркетингови материали. Съчета човешкия усет с AI инструменти и създаде насочени имейл серии и кратки видеа, които достигнаха до нашата аудитория. Беше проактивен, комуникативен и предаде всичко навреме. Кампанията подобри ангажираността и затвърди професионалния образ на бранда ни.“</p></blockquote>
+      <figure class="quote rv">
+        <blockquote><p data-i18n="q3">„Впечатли ме колко бързо Влади разбра тънкостите на нашите финансови продукти и ги превърна в ясни и ангажиращи материали. […] Кампанията подобри ангажираността и затвърди професионалния образ на бранда ни.“</p></blockquote>
         <figcaption><cite>Стефка В.<span data-i18n="q3.role">Банков консултант, Пощенска банка · маркетингова кампания</span></cite><a class="verified" href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#14A800"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="rev.ver">Проверен отзив в Upwork</span></a></figcaption>
       </figure>
       <figure class="quote rv">
@@ -726,14 +720,14 @@ var EN={
  "band":"Short videos","band2":"Social media","band3":"Google Business Profile","band4":"Websites and menus","band5":"Ad campaigns","band6":"AI training",
  "clients.label":"I have worked with",
  "ask":"Get a quote","svc.title":"Services and prices","svc.lead":"Prices are clear from the start. You get an exact quote after a short free call where we pin down what you need.",
- "s1.name":"Short videos and AI ads","s1.desc":"Vertical videos up to 60 seconds for Instagram, TikTok, Facebook and YouTube Shorts.",
+ "s1.name":"Short videos and AI ads","s1.desc":"Vertical videos up to 30 seconds for Instagram, TikTok, Facebook and YouTube Shorts.",
  "s1.list":"<li>Idea and script with a hook in the first 2 seconds</li><li>AI visuals, captions and music</li><li>1–2 revisions per video</li>",
  "s1.price":"<span class=\"cur\">€</span>60","s1.small":"per video · pack of 4 for €240",
  "s2.name":"Social media","s2.desc":"We take over your profiles: plan, content, publishing, report.",
  "s2.list":"<li>Start: 2 platforms, 10 posts, 4 videos</li><li>Growth: up to 3 platforms, 16 posts, 8 videos, ad setup</li><li>Monthly results report</li>",
  "s2.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>390","s2.small":"per month · Growth €690",
  "s3.name":"Google Business Profile","s3.desc":"Get found on Google Maps when people search “near me”.",
- "s3.list":"<li>Setup: categories, services, photos, description</li><li>A plan for more reviews</li><li>Upkeep: posts and review replies</li>",
+ "s3.list":"<li>Setup: categories, services, photos, description</li><li>A plan for more reviews</li><li>Upkeep: posts and review replies</li><li>A QR code sign for reviews</li>",
  "s3.price":"<span class=\"cur\">€</span>180","s3.small":"setup · upkeep €90 per month",
  "s4.name":"Websites, landing pages and digital menus","s4.desc":"Fast pages that work well on a phone and lead to an enquiry.",
  "s4.list":"<li>Digital menu or one-page site with QR code</li><li>Landing page with form and analytics</li><li>Hosted by me, or ready code for your hosting</li>",
@@ -760,7 +754,7 @@ var EN={
  "f1.b":"Education","f1.s":"New Bulgarian University, American University in Bulgaria","cert.h":"Certifications","cert1":"SoftUni · 2025 · with excellence","cert3":"Social media marketing","cert6":"Licensed fitness and dance coach","f2.b":"Tools","f2.s":"Higgsfield, Veo 3, Kling, CapCut, ElevenLabs, ChatGPT, Claude",
  "f3.b":"Languages","f3.s":"Bulgarian and English","f4.b":"Where","f4.s":"On site in Sofia and online with clients anywhere",
  "rev.lead":"Reviews from real projects: banking, public administration and marketing campaigns.","rev.ver":"Verified on Upwork","rev.note":"Upwork reviews are quoted from the original English.",
- "q3":"\u201cI was impressed by Vladi\u2019s ability to quickly grasp the nuances of our financial products and translate them into clear, engaging marketing materials. He combined human insight with AI-powered tools to produce targeted email sequences and short-form videos that resonated with our audience. Throughout the project he was proactive, communicative and delivered everything on time. The campaign not only improved our engagement metrics but also reinforced our brand\u2019s professional image.\u201d","q3.role":"Bank Consultant, Postbank · marketing campaign",
+ "q3":"\u201cI was impressed by Vladi\u2019s ability to quickly grasp the nuances of our financial products and translate them into clear, engaging marketing materials. [\u2026] The campaign not only improved our engagement metrics but also reinforced our brand\u2019s professional image.\u201d","q3.role":"Bank Consultant, Postbank · marketing campaign",
  "q4":"\u201cI\u2019ve been working with Vladi for the past 6 months. He is highly experienced and his work is detailed and on the spot. He heard my expectations and delivered immaculately. I recommend his services!\u201d","q4.role":"Supervisor · marketing campaign",
  "q5":"\u201cVladi brought our project to life with his expert editing and storytelling skills. He was professional, responsive, and a true collaborator throughout the entire process.\u201d","q5.role":"Chief expert, Ministry of Transport and Communications · brand strategy",
  "rev.title":"What clients say",
