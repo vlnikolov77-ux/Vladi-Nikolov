@@ -183,6 +183,32 @@ img.shot{transition:transform 3.2s cubic-bezier(.3,.1,.3,1)}
 .price small{color:var(--slate);font-size:14px;display:block;margin-top:6px;transition:color .3s}
 .price-note{margin-top:26px;color:var(--slate);font-size:15px;max-width:80ch}
 
+/* ---------- training ---------- */
+.training{background:var(--white)}
+.tr-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.tr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.tr-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:28px 26px;display:flex;flex-direction:column;gap:14px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.tr-card:hover{transform:translateY(-4px);border-color:var(--sky);box-shadow:0 24px 50px -30px rgba(13,26,43,.45)}
+.tr-tag{align-self:flex-start;font-size:13px;font-weight:700;color:var(--night);background:var(--sky-soft);padding:6px 11px;border-radius:999px}
+.tr-card h3{font-family:var(--display);font-size:22px;line-height:1.15}
+.tr-card p{color:var(--slate);font-size:16px}
+.tr-card ul{list-style:none;flex:1}
+.tr-card li{padding-left:22px;position:relative;margin-bottom:7px;color:#2A3B54;font-size:15.5px}
+.tr-card li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:3px;border-radius:2px;background:var(--signal)}
+.tr-meta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:14px;font-size:14px;color:var(--slate)}
+.tr-meta b{font-family:var(--display);font-size:26px;font-weight:400;color:var(--ink);white-space:nowrap}
+.tr-meta b .cur{font-family:var(--body);font-weight:700;font-size:.66em;color:var(--signal);margin-left:.1em}
+.tr-card.feat{background:var(--night);color:var(--white);border-color:var(--night)}
+.tr-card.feat p,.tr-card.feat .tr-meta{color:var(--mist)}
+.tr-card.feat .tr-tag{background:var(--signal);color:var(--white)}
+.tr-card.feat .tr-meta{border-color:rgba(255,255,255,.12)}
+.tr-card.feat .tr-meta b{color:var(--white)}
+.tr-card.feat .btn{align-self:flex-start;padding:14px 22px;font-size:15px;margin-top:auto}
+.tr-photo{position:relative;margin:0;border-radius:26px;overflow:hidden;min-height:260px;background:var(--night)}
+.tr-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 25%}
+.tr-photo figcaption{position:absolute;left:16px;bottom:16px;font-size:13px;font-weight:700;color:var(--white);background:rgba(13,26,43,.7);backdrop-filter:blur(6px);padding:7px 12px;border-radius:999px}
+.tr-note{margin-top:26px;color:var(--slate);font-size:15px;max-width:80ch}
+
 /* ---------- manifesto ---------- */
 .manifesto{padding:40px 0 110px}
 .manifesto p{font-family:var(--serif);font-style:italic;font-size:clamp(34px,5vw,68px);line-height:1.12;max-width:20ch;color:var(--ink)}
@@ -302,7 +328,8 @@ footer .social a:hover{color:var(--sky)}
 /* ---------- responsive ---------- */
 @media (max-width:1040px){
   .nav-links{display:none}
-  .hero .wrap,.about .wrap,.contact .wrap,.svc-head,.faq-wrap{grid-template-columns:1fr}
+  .hero .wrap,.about .wrap,.contact .wrap,.svc-head,.faq-wrap,.tr-head{grid-template-columns:1fr}
+  .tr-grid{grid-template-columns:repeat(2,1fr)}
   .stage{margin-top:28px}
   .f2{left:-16px;top:auto;bottom:18%}
   .proof{grid-template-columns:repeat(2,auto)}
@@ -344,7 +371,9 @@ footer .social a:hover{color:var(--sky)}
   .steps li::before{font-size:48px}
   .manifesto p{font-size:30px}
   .reel p{font-size:14px}
-  .steps,.facts,.certs{grid-template-columns:1fr}
+  .steps,.facts,.certs,.tr-grid{grid-template-columns:1fr}
+  .tr-photo{display:none}
+  .tr-card{padding:24px 20px}
   .svc-row{padding:28px 16px;margin:0 -16px}
   .svc-row::after{left:16px;right:16px}
   .quote,  form{padding:24px}
@@ -477,12 +506,62 @@ footer .social a:hover{color:var(--sky)}
         <div class="price"><b data-i18n="s5.price"><span class="from">от</span> 390<span class="cur">€</span></b><small data-i18n="s5.small">според обхвата</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
       </div>
       <div class="svc-row rv">
-        <div><h3 data-i18n="s6.name">AI обучение за екипа</h3><p data-i18n="s6.desc">Как твоят екип сам да прави видео и съдържание с AI.</p></div>
-        <ul data-i18n="s6.list"><li>2 часа на място или онлайн</li><li>Инструменти, които ползвам всеки ден</li><li>Готови шаблони за работа</li></ul>
-        <div class="price"><b data-i18n="s6.price">250<span class="cur">€</span></b><small data-i18n="s6.small">за 2 часа</small><a class="ask" href="#contact" data-i18n="ask">Поискай оферта</a></div>
+        <div><h3 data-i18n="s6.name">AI обучения за фирми</h3><p data-i18n="s6.desc">Практически обучения, след които екипът ти сам работи с AI.</p></div>
+        <ul data-i18n="s6.list"><li>AI видео и съдържание</li><li>AI за маркетинг и продажби</li><li>AI асистенти за офиса</li><li>Менторство 1:1 и програма по поръчка</li></ul>
+        <div class="price"><b data-i18n="s6.price"><span class="from">от</span> 250<span class="cur">€</span></b><small data-i18n="s6.small">на група</small><a class="ask" href="#training" data-i18n="ask.tr">Виж програмите</a></div>
       </div>
     </div>
     <p class="price-note" data-i18n="svc.note">Плащане: 50% аванс и 50% при предаване. Месечните пакети са с минимален срок 3 месеца. Социални мрежи и поддръжка на Google профил заедно: 10% отстъпка.</p>
+  </div>
+</section>
+
+<section class="training" id="training">
+  <div class="wrap">
+    <div class="tr-head rv">
+      <h2 data-i18n="tr.title">AI обучения за фирми</h2>
+      <p class="lead" data-i18n="tr.lead">На място в офиса ви или онлайн. Една цена за групата, независимо дали сте 1 или 10 души. Работим по реални задачи на вашия бизнес.</p>
+    </div>
+    <div class="tr-grid">
+      <article class="tr-card rv">
+        <span class="tr-tag" data-i18n="t1.tag">Уъркшоп · 2 ч</span>
+        <h3 data-i18n="t1.name">AI видео и съдържание</h3>
+        <p data-i18n="t1.desc">Екипът сам прави кратки видеа и публикации с AI.</p>
+        <ul data-i18n="t1.list"><li>Възможност за обучение с индивидуален видео редактор за субтитри и сглобяване, настроен по вашия бранд</li><li>AI визуализация, надписи и музика</li><li>Инструментите, които ползвам всеки ден</li></ul>
+        <div class="tr-meta"><span data-i18n="tr.group">на група</span><b>250<span class="cur">€</span></b></div>
+      </article>
+      <article class="tr-card rv">
+        <span class="tr-tag" data-i18n="t2.tag">Уъркшоп · 3 ч</span>
+        <h3 data-i18n="t2.name">AI за маркетинг и продажби</h3>
+        <p data-i18n="t2.desc">Реклами и запитвания с помощта на AI.</p>
+        <ul data-i18n="t2.list"><li>Маркетингови стратегии с AI</li><li>Рекламни текстове и визии</li><li>Форми за запитвания</li><li>Имейл кампании и Viber съобщения</li></ul>
+        <div class="tr-meta"><span data-i18n="tr.group">на група</span><b>350<span class="cur">€</span></b></div>
+      </article>
+      <article class="tr-card rv">
+        <span class="tr-tag" data-i18n="t3.tag">Настройка + обучение · 3 ч</span>
+        <h3 data-i18n="t3.name">AI асистенти за офиса</h3>
+        <p data-i18n="t3.desc">Настройвам ChatGPT и Claude за вашата работа и обучавам екипа.</p>
+        <ul data-i18n="t3.list"><li>Имейли и оферти за минути</li><li>Документи и обобщения</li><li>Готови шаблони за екипа</li></ul>
+        <div class="tr-meta"><span data-i18n="tr.group">на група</span><b>390<span class="cur">€</span></b></div>
+      </article>
+      <article class="tr-card rv">
+        <span class="tr-tag" data-i18n="t4.tag">Индивидуално</span>
+        <h3 data-i18n="t4.name">Менторство 1:1</h3>
+        <p data-i18n="t4.desc">За собственици и маркетинг мениджъри, които искат да внедрят AI в своя бизнес.</p>
+        <ul data-i18n="t4.list"><li>Работим по твоите задачи</li><li>Онлайн или на място</li><li>Колкото часа ти трябват</li></ul>
+        <div class="tr-meta"><span data-i18n="tr.hour">на час</span><b>60<span class="cur">€</span></b></div>
+      </article>
+      <article class="tr-card feat rv">
+        <span class="tr-tag" data-i18n="t5.tag">По поръчка</span>
+        <h3 data-i18n="t5.name">Програма за вашата фирма</h3>
+        <p data-i18n="t5.desc">Разговаряме за екипа и задачите ви и съставям обучение точно за вашия бизнес.</p>
+        <div class="tr-meta"><span data-i18n="tr.offer">цена по оферта</span></div>
+        <a class="btn btn-primary" href="#contact" data-i18n="tr.cta">Поискай програма</a>
+      </article>
+      <figure class="tr-photo rv">
+        <img src="assets/vladi-training.jpg" alt="Влади Николов говори пред публика" width="800" height="1000" loading="lazy">
+        <figcaption data-i18n="tr.photo">Обучава Влади Николов</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -776,8 +855,14 @@ var EN={
  "s4.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>350","s4.small":"menu or one-pager · <span style=\"white-space:nowrap\">landing page €700–1,200</span>",
  "s5.name":"AI ad campaign","s5.desc":"A complete campaign for a product, service or event.","s5.list":"<li>Hero video and carousel</li><li>Ad copy</li><li>3 sales emails</li>",
  "s5.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>390","s5.small":"depending on scope",
- "s6.name":"AI training for your team","s6.desc":"How your team can make video and content with AI on its own.","s6.list":"<li>2 hours on site or online</li><li>The tools I use every day</li><li>Ready-to-use templates</li>",
- "s6.price":"<span class=\"cur\">€</span>250","s6.small":"for 2 hours",
+ "s6.name":"AI training for companies","s6.desc":"Hands-on training after which your team works with AI on its own.","s6.list":"<li>AI video and content</li><li>AI for marketing and sales</li><li>AI assistants for the office</li><li>1:1 mentoring and custom programmes</li>",
+ "tr.title":"AI training for companies","tr.lead":"At your office or online. One price per group, whether you are 1 or 10 people. We work on your business\u2019s real tasks.","tr.group":"per group","tr.hour":"per hour","tr.offer":"price on request","tr.cta":"Request a programme","tr.photo":"Your trainer: Vladi Nikolov",
+ "t1.tag":"Workshop · 2 h","t1.name":"AI video and content","t1.desc":"Your team makes short videos and posts with AI on its own.","t1.list":"<li>Option to train on a custom video editor for subtitles and assembly, set up for your brand</li><li>AI visuals, captions and music</li><li>The tools I use every day</li>",
+ "t2.tag":"Workshop · 3 h","t2.name":"AI for marketing and sales","t2.desc":"Ads and enquiries with the help of AI.","t2.list":"<li>Marketing strategies with AI</li><li>Ad copy and visuals</li><li>Enquiry forms</li><li>Email campaigns and Viber messages</li>",
+ "t3.tag":"Setup + training · 3 h","t3.name":"AI assistants for the office","t3.desc":"I set up ChatGPT and Claude for your work and train the team.","t3.list":"<li>Emails and quotes in minutes</li><li>Documents and summaries</li><li>Ready-made templates for the team</li>",
+ "t4.tag":"One-to-one","t4.name":"1:1 mentoring","t4.desc":"For owners and marketing managers who want to bring AI into their business.","t4.list":"<li>We work on your tasks</li><li>Online or on site</li><li>As many hours as you need</li>",
+ "t5.tag":"Custom","t5.name":"A programme for your company","t5.desc":"We talk about your team and tasks, and I put together training built for your business.",
+ "s6.price":"<span class=\"from\">from</span> <span class=\"cur\">€</span>250","s6.small":"per group","ask.tr":"See the programmes",
  "svc.note":"Payment: 50% upfront, 50% on delivery. Monthly plans have a 3-month minimum. Social media plus Google profile upkeep together: 10% off.",
  "man.p":"“People don’t buy AI. They buy more customers.”","man.s":"That is why every video, post and page starts with one question: what will it bring your business?",
  "work.title":"Work you can watch","work.lead":"Real projects for real businesses. The videos are vertical, because that is where attention is today.","work.soon":"Video coming soon","work.k":"AI product video","work.f":"Product video","work.p":"Charity event","work.m":"Digital menu","w7.name":"Property ad video","work.i":"Captions and motion graphics","w7.desc":"For a real estate agency: a video made only from photos of the property, no film crew. Animated captions, floor area and room count right on screen.","w7.res":"Ready for the listing, Instagram and TikTok","w6.name":"Palavoto nosle","work.t":"Trailer and multimedia","w6.desc":"Children\u2019s show by Kambana Art, written by Milena Maat: the trailer and the AI stage multimedia. Played at NBU, Hand Theatre and Toplocentrala.","w6.res":"Supported by the National Culture Fund","w5.desc":"Bilingual menu for a fresh bar on Vitosha Blvd: categories, prices and photos. A branded QR code on cups, products and the shop window.","w5.res":"The menu on your phone in one scan",
