@@ -74,6 +74,13 @@
   var log = panel.querySelector('.vc-log'), form = panel.querySelector('form'),
       input = form.querySelector('textarea'), sendBtn = form.querySelector('button');
   var history = [], started = false, busy = false;
+  // Казва на модела на какъв език е последният въпрос (безплатният модел иначе отговаря на български)
+  function withLang(h) {
+    var out = h.slice(), last = out[out.length - 1];
+    if (last && last.role === 'user' && !/[\u0400-\u04FF]/.test(last.text) && /[A-Za-z]/.test(last.text))
+      out[out.length - 1] = { role: 'user', text: last.text + '\n\n[Reply in English only. Your name is Maya.]' };
+    return out;
+  }
 
   function labels() {
     btn.setAttribute('aria-label', t().open); btn.title = t().open;
@@ -124,7 +131,7 @@
     busy = true; sendBtn.disabled = true;
     add(text, 'me'); history.push({ role: 'user', text: text });
     var typing = add(t().wait, 'bot'); typing.style.opacity = '.6';
-    fetch(WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history }) })
+    fetch(WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: withLang(history) }) })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw j; return j; }); })
       .then(function (j) {
         typing.remove();
