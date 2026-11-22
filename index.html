@@ -321,6 +321,18 @@ footer .social{display:flex;flex-wrap:wrap;gap:8px 22px}
 footer .social a{text-decoration:none}
 footer .social a:hover{color:var(--sky)}
 
+/* ---------- cookie banner ---------- */
+.cookie{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;background:var(--night);color:var(--white);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:20px 20px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);font-size:15px;line-height:1.5}
+.cookie[hidden]{display:none}
+.cookie p{color:#C9D7E6;margin-bottom:14px}
+.cookie b{color:var(--white)}
+.cookie-btns{display:flex;flex-wrap:wrap;gap:10px}
+.cookie .btn{padding:12px 18px;font-size:14px}
+.cookie .btn-line{background:transparent}
+.cookie .btn-line:hover{background:rgba(255,255,255,.06)}
+footer .ck-link{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;text-decoration:underline}
+@media (max-width:600px){.cookie{left:10px;right:10px;bottom:10px;max-width:none}}
+
 /* ---------- reveal (one consistent rise on scroll) ---------- */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -773,9 +785,17 @@ footer .social a:hover{color:var(--sky)}
   <svg class="wordmark" viewBox="0 0 1000 130" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><text x="500" y="112" text-anchor="middle" textLength="980" lengthAdjust="spacingAndGlyphs">VLADIATOR</text></svg>
   <div class="wrap">
     <span>© 2026 Vladiator Digital · Владимир Николов · София</span>
-    <span class="social"><a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener">Upwork</a><a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a></span>
+    <span class="social"><a href="https://www.linkedin.com/in/vladiator-z-vladi-nikolov/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.upwork.com/freelancers/~0113d65544fbe9bd6b" target="_blank" rel="noopener">Upwork</a><a href="mailto:vlnikolov77@gmail.com">vlnikolov77@gmail.com</a><button type="button" class="ck-link" id="ck-open" data-i18n="ck.link">Бисквитки</button></span>
   </div>
 </footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-label="Бисквитки" hidden>
+  <p data-i18n="ck.text"><b>Бисквитки.</b> С твое съгласие ползвам Google Analytics и Meta Pixel, за да виждам откъде идват посетителите и да подобрявам рекламите. Без съгласие нищо не се зарежда.</p>
+  <div class="cookie-btns">
+    <button type="button" class="btn btn-primary" id="ck-yes" data-i18n="ck.yes">Приемам</button>
+    <button type="button" class="btn btn-line" id="ck-no" data-i18n="ck.no">Отказвам</button>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -911,6 +931,7 @@ var EN={
  "form.title":"Send an enquiry","form.name":"Name","form.biz":"Business and website or profile","form.need":"What do you need?",
  "opt1":"Short videos","opt2":"Social media","opt3":"Google Business Profile","opt4":"Website, landing page or menu","opt5":"AI ad campaign","opt7":"AI training for the team","opt8":"1:1 mentoring","opt6":"Not sure yet, I want advice",
  "form.contact":"Phone or email","form.msg":"Anything I should know first","form.send":"Send enquiry",
+ "ck.text":"<b>Cookies.</b> With your consent I use Google Analytics and Meta Pixel to see where visitors come from and to improve ads. Nothing loads without consent.","ck.yes":"Accept","ck.no":"Decline","ck.link":"Cookies",
  "form.hint":"Your email app opens with the message filled in. I reply within 24 hours on working days.","form.bizph":"e.g. Sunny Café, @sunny_cafe"
 };
 var BG={},BGPH={};
@@ -927,6 +948,38 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
 try{if(localStorage.getItem('lang')==='en')setLang('en');}catch(e){}
 
+/* analytics + Meta Pixel: loaded only after consent */
+var GA_ID='G-M62461K6ZJ';
+var PIXEL_ID='1480011587415946';
+var tracking=false;
+function loadTracking(){
+  if(tracking)return;tracking=true;
+  if(GA_ID){
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date());gtag('config',GA_ID);
+  }
+  if(PIXEL_ID){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',PIXEL_ID);fbq('track','PageView');
+  }
+}
+var ck=document.getElementById('cookie'),consent=null;
+try{consent=localStorage.getItem('consent');}catch(e){}
+if(GA_ID||PIXEL_ID){
+  if(consent==='yes')loadTracking();
+  else if(consent!=='no')ck.hidden=false;
+}else{document.getElementById('ck-open').hidden=true;}
+function setConsent(v){try{localStorage.setItem('consent',v);}catch(e){}ck.hidden=true;if(v==='yes')loadTracking();else if(tracking){location.reload();}}
+document.getElementById('ck-yes').addEventListener('click',function(){setConsent('yes');});
+document.getElementById('ck-no').addEventListener('click',function(){setConsent('no');});
+document.getElementById('ck-open').addEventListener('click',function(){ck.hidden=false;});
+function trackLead(service){
+  if(!tracking)return;
+  if(window.gtag)gtag('event','generate_lead',{service:service});
+  if(window.fbq)fbq('track','Lead',{content_name:service});
+}
+
 /* form: builds an email with the filled-in details */
 document.getElementById('lead-form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -936,6 +989,7 @@ document.getElementById('lead-form').addEventListener('submit',function(e){
     hint.style.color='#E02236';return;
   }
   var body='Име: '+f.name.value+'\nБизнес: '+f.biz.value+'\nНужда: '+f.need.value+'\nКонтакт: '+f.contact.value+'\n\n'+f.msg.value;
+  trackLead(f.need.value);
   location.href='mailto:vlnikolov77@gmail.com?subject='+encodeURIComponent('Запитване от сайта: '+f.need.value)+'&body='+encodeURIComponent(body);
 });
 })();
