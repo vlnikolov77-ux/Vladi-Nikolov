@@ -7,8 +7,8 @@
   var T = {
     bg: {
       open: 'Чат с Мая — AI асистент', title: 'Мая · AI асистент', sub: 'Vladiator Digital · отговаря веднага', label: 'Попитай Мая', tag: 'AI чатбот · 24/7',
-      hi: 'Здравей! Аз съм Мая — AI асистентката на Vladiator Digital. Мога да ти разкажа за услугите, цените и обученията или да ти кажа как да се свържеш с Влади.',
-      chips: ['AI обучения за фирми', 'Колко струва видео?', 'Как да говоря с Влади?'],
+      hi: 'Здрасти! Аз съм Мая, AI асистентката на Влади. Питай ме каквото искаш за услугите и обученията — или просто ми кажи с какво се занимаваш.',
+      chips: ['Социални мрежи', 'Рекламна кампания', 'AI обучения за фирми', 'Как да говоря с Влади?'],
       ph: 'Напиши съобщение…', send: 'Изпрати', wait: 'Пише…',
       err: 'Не успях да отговоря. Пиши директно на vlnikolov77@gmail.com или +359 896 868 198.',
       lead: 'Изпрати на Влади', wa: 'или по WhatsApp',
@@ -16,8 +16,8 @@
     },
     en: {
       open: 'Chat with Maya, the AI assistant', title: 'Maya · AI assistant', sub: 'Vladiator Digital · replies instantly', label: 'Ask Maya', tag: 'AI chatbot · 24/7',
-      hi: 'Hi! I am Maya, the AI assistant of Vladiator Digital. I can tell you about services, prices and training, or tell you how to reach Vladi.',
-      chips: ['AI training for companies', 'How much is a video?', 'How do I talk to Vladi?'],
+      hi: 'Hi! I am Maya, Vladi\'s AI assistant. Ask me anything about the services and training, or just tell me what you do.',
+      chips: ['Social media', 'Ad campaign', 'AI training for companies', 'How do I talk to Vladi?'],
       ph: 'Type a message…', send: 'Send', wait: 'Typing…',
       err: 'I could not reply. Write directly to vlnikolov77@gmail.com or +359 896 868 198.',
       lead: 'Send to Vladi', wa: 'or via WhatsApp',
