@@ -26,6 +26,29 @@
   };
   var t = function () { return en() ? T.en : T.bg; };
 
+  // Линкове от Instagram/ManyChat: ?maya=avatar | brand | imot | product | ig — отварят чата с поздрав по темата
+  var TOPICS = {
+    avatar: {
+      hi: 'Здрасти! Виждам, че идваш от видеото за AI аватар 🙂 Искаш ли да ти разкажа как можеш да направиш такова видео за твоя бизнес — сам или с наша помощ?',
+      chips: ['Колко струва такова видео?', 'Мога ли да се науча сам?', 'Как да говоря с Влади?'] },
+    brand: {
+      hi: 'Здрасти! Идваш от видеото за историята на бранда 🙂 Разкажи ми с какво се занимаваш и ще ти кажа как може да изглежда твоята история във видео и в социалните мрежи.',
+      chips: ['Социални мрежи', 'Видео за бранда', 'Как да говоря с Влади?'] },
+    imot: {
+      hi: 'Здрасти! Видях, че те интересуват видеата за имоти 🏡 Можем да направим рекламно видео за имот само по снимки. Искаш ли да ти кажа как става и колко струва?',
+      chips: ['Как става видео по снимки?', 'Колко струва?', 'Как да говоря с Влади?'] },
+    product: {
+      hi: 'Здрасти! Идваш от видеото за продукти 📦 Какъв е твоят продукт? Ще ти кажа какво видео или кампания биха му подхождали.',
+      chips: ['Видео само по снимки', 'Рекламна кампания', 'Колко струва?'] },
+    ig: {
+      hi: 'Здрасти! Радвам се, че дойде от Instagram 🙂 Аз съм Мая, AI асистентката на Влади. Кажи ми с какво се занимаваш и с какво да ти помогна.',
+      chips: ['Социални мрежи', 'Рекламна кампания', 'AI обучения за фирми'] }
+  };
+  var topicKey = (function () { try { return (new URLSearchParams(location.search).get('maya') || '').toLowerCase(); } catch (e) { return ''; } })();
+  var topic = !en() && TOPICS[topicKey] ? TOPICS[topicKey] : null;
+  var hiText = function () { return topic ? topic.hi : t().hi; };
+  var chipList = function () { return topic ? topic.chips : t().chips; };
+
   var css = '\
 .vc-btn{position:fixed;right:16px;bottom:16px;z-index:35;height:46px;padding:0 16px 0 5px;border-radius:999px;border:1px solid rgba(255,255,255,.14);cursor:pointer;background:#0D1A2B;color:#fff;box-shadow:0 12px 28px -10px rgba(13,26,43,.7);display:flex;align-items:center;gap:9px;font:700 14px Onest,system-ui,sans-serif;transition:transform .2s}\
 .vc-btn:hover{transform:translateY(-2px)}\
@@ -118,7 +141,7 @@
   }
   function chips() {
     var c = document.createElement('div'); c.className = 'vc-chips';
-    t().chips.forEach(function (label) {
+    chipList().forEach(function (label) {
       var b = document.createElement('button'); b.type = 'button'; b.textContent = label;
       b.addEventListener('click', function () { c.remove(); ask(label); });
       c.appendChild(b);
@@ -148,11 +171,12 @@
   btn.addEventListener('click', function () {
     labels();
     panel.hidden = !panel.hidden;
-    if (!panel.hidden && !started) { started = true; add(t().hi, 'bot'); history.push({ role: 'model', text: t().hi }); chips(); }
+    if (!panel.hidden && !started) { started = true; add(hiText(), 'bot'); history.push({ role: 'model', text: hiText() }); chips(); }
     if (!panel.hidden) input.focus();
   });
   panel.querySelector('.vc-head button').addEventListener('click', function () { panel.hidden = true; });
   form.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value; input.value = ''; ask(v); });
   input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); } });
   labels();
+  if (topic) setTimeout(function () { if (panel.hidden) btn.click(); }, 900);
 })();
